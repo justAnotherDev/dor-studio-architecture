@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 108 108" enable-background="new 0 0 108 108" xml:space="preserve">
+  <g id="SOLIDS">
+  </g>
+  <g id="LINES">
+  </g>
+  <g id="TEXT2">
+
+    <polyline fill="none" stroke="#B06528" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		56.376,14.628 97.914,56.489 37.253,34.808 	"/>
+
+    <line fill="none" stroke="#4C453F" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="16.676" y1="15.989" x2="26.164" y2="25.478"/>
+
+    <line fill="none" stroke="#537271" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="36.126" y1="34.972" x2="49.164" y2="48.01"/>
+
+    <polyline fill="none" stroke="#4C453F" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		57.176,56.489 16.676,96.989 16.676,15.989 	"/>
+
+    <line fill="none" stroke="#537271" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="56.376" y1="14.722" x2="36.126" y2="34.972"/>
+
+    <line fill="none" stroke="#537271" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="57.503" y1="56.349" x2="17.003" y2="96.849"/>
+    <path fill="none" stroke="#4C453F" stroke-width="1.125" stroke-miterlimit="10" d="M17.003,15.849"/>
+    <g>
+
+      <rect x="21.303" y="4.18" transform="matrix(0.7071 -0.7071 0.7071 0.7071 7.4815 39.7123)" fill="none" width="60.75" height="13.29"/>
+
+      <text transform="matrix(0.7071 -0.7071 0.7071 0.7071 33.8691 35.9727)" fill="#B06528" font-family="'TrebuchetMS-Bold'" font-size="15.7501">DOR</text>
+    </g>
+
+    <rect x="26.44" y="51.884" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -28.7115 54.7039)" fill="none" width="50.475" height="20.252"/>
+
+    <text transform="matrix(0.7071 -0.7071 0.7071 0.7071 33.7568 79.7793)" fill="#E38425" font-family="'TrebuchetMS'" font-size="13.5001">STUDIO</text>
+
+    <rect x="48.752" y="29.488" transform="matrix(0.7071 0.7071 -0.7071 0.7071 50.1349 -41.8147)" fill="none" width="53.588" height="20.255"/>
+
+    <text transform="matrix(0.7071 0.7071 -0.7071 0.7071 60.333 17.0332)" fill="#537271" font-family="'Lato-Light'" font-size="6.75">ARCHITECTURE</text>
+  </g>
+  <g id="text">
+  </g>
+  <g id="DS">
+  </g>
+  <g id="A">
+  </g>
+</svg>
