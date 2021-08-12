@@ -21,6 +21,10 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  width: calc(100% - 1.25rem);
+	margin: 0px auto;
+	box-sizing: content-box;
+	border: 0.625rem solid #ffffff;
 }
 article,
 aside,

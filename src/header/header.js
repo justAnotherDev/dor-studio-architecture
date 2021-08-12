@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { AppBar, makeStyles } from "@material-ui/core"
@@ -6,23 +6,34 @@ import Logo from "../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
 
-const Header = ({ siteTitle, ...props }) => {
+const Header = ({ siteTitle, showAppBar, ...props }) => {
+  console.log(showAppBar)
   const classes = headerStyles(props)
 
-  React.useEffect(() => {
-    headerIntroAnimation()
+  useEffect(() => {
+    if (typeof window !== undefined && window?.innerWidth > 1024) {
+      headerIntroAnimation()
+    }
+    else {
+      gsap.set('.link', {
+        color: "unset",
+        textShadow: "none"
+      })
+      gsap.set('.header__link-div-left1, .header__link-div-right3, .header__link-div-left0, .header__link-div-right4', {
+        opacity: 1
+      })
+    }
   }, [])
 
   const linkArray = ["Portfolio", "Services", "", "About", "Contact"]
 
   return (
-    <AppBar position="relative">
-      <div className={classes.appbar}>
+    <AppBar className="header__appbar" position="relative" elevation={0}>
+      <div className={classes.appbarwrapper}>
         {linkArray.map((link, i) =>
           i !== 2 ? (
-            <Link className={`${classes.link} link`}>
-              <div 
-                key={i} 
+            <Link key={i} to={`/${link.charAt(0).toLowerCase()}${link.substring(1)}`} className={`${classes.link} link`}>
+              <div  
                 style={{ opacity: 0 }} 
                 className={`header__link-div-${i < 2 ? 'left':'right'}${i}`}
               >
@@ -66,7 +77,7 @@ const headerIntroAnimation = () => {
 }
 
 const headerStyles = makeStyles(theme => ({
-  appbar: {
+  appbarwrapper: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",

@@ -3,5 +3,9 @@
  *
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
+import React from 'react'
 
-// You can delete this file if you're not using it
+export function wrapPageElement({ element, props }) {
+  const Layout = element.type.Layout ?? React.Fragment
+  return <Layout {...props}>{element}</Layout>
+}
