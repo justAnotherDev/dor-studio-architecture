@@ -30,10 +30,10 @@ const Layout = ({ children }) => {
 
   function checkWindowSize() {
     if(typeof window !== undefined) {
-      console.log(window.innerWidth)
-      console.log(windowThreshold)
+      //console.log(window.innerWidth)
+      //console.log(windowThreshold)
       if (window.innerWidth > 1024 && !windowThreshold) {
-        console.log('trying to hit this')
+        //console.log('trying to hit this')
         setWindowThreshold(true)
       }
       else if (window.innerWidth <= 1024 && windowThreshold) {

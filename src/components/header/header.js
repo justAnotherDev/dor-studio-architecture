@@ -1,49 +1,64 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { AppBar, makeStyles } from "@material-ui/core"
+import { AppBar, makeStyles, withStyles } from "@material-ui/core"
 import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
+import theme from '../../../plugins/custom-mui-theme/theme';
 
 const Header = ({ siteTitle, showAppBar, ...props }) => {
-  console.log(showAppBar)
   const classes = headerStyles(props)
+  const [currentNav, setCurrentNav] = useState(null)
 
   useEffect(() => {
-    if (typeof window !== undefined && window?.innerWidth > 1024) {
-      headerIntroAnimation()
-    }
-    else {
-      gsap.set('.link', {
-        color: "unset",
-        textShadow: "none"
-      })
-      gsap.set('.header__link-div-left1, .header__link-div-right3, .header__link-div-left0, .header__link-div-right4', {
-        opacity: 1
-      })
+    if (typeof window !== undefined) {
+      setCurrentNav(window.location.pathname)
+      if (window.innerWidth > 1024 && window.location.pathname === '/') headerIntroAnimation()
+      else {
+        gsap.set('.link', {
+          color: "unset",
+          textShadow: "none"
+        })
+        gsap.set('.header__link-div-left1, .header__link-div-right3, .header__link-div-left0, .header__link-div-right4', {
+          opacity: 1
+        })
+      }
     }
   }, [])
 
   const linkArray = ["Portfolio", "Services", "", "About", "Contact"]
 
+  function changeHighlightedLink(localLink) {
+    setCurrentNav(localLink)
+  }
+
   return (
-    <AppBar className="header__appbar" position="relative" elevation={0}>
+    <AppBar position="relative" elevation={0}>
       <div className={classes.appbarwrapper}>
-        {linkArray.map((link, i) =>
-          i !== 2 ? (
-            <Link key={i} to={`/${link.charAt(0).toLowerCase()}${link.substring(1)}`} className={`${classes.link} link`}>
-              <div  
-                style={{ opacity: 0 }} 
-                className={`header__link-div-${i < 2 ? 'left':'right'}${i}`}
+        {linkArray.map((link, i) => {
+          const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
+          const match = localLink === currentNav;
+          return (
+            i !== 2 ? (
+              <Link 
+                key={i} 
+                to={localLink} 
+                className={`${classes.link} link ${match && classes.currentLink}`}
+                onClick={() => changeHighlightedLink(localLink)}
               >
-                {link}
-              </div>
-            </Link>
-          ) : (
-            <div key={i} style={{ minWidth: "15%", paddingBottom: "15%" }}></div>
+                <div  
+                  style={{ opacity: 0 }} 
+                  className={`header__link-div-${i < 2 ? 'left':'right'}${i}`}
+                >
+                  {link}
+                </div>
+              </Link>
+            ) : (
+              <div key={i} style={{ minWidth: "15%", paddingBottom: "15%" }}></div>
+            )
           )
-        )}
+        })}
       </div>
       <Link to="/" className="logo">
         <Logo className="draw-logo" />
@@ -93,6 +108,7 @@ const headerStyles = makeStyles(theme => ({
     color: "transparent",
     textShadow: "0 0 5px rgba(176, 101, 40, 0.5)",
     padding: "0.3125rem 0.9375rem",
+    textDecoration: 'none',
     "&:hover": {
       textDecoration: "underline",
       color: `${theme.palette.primary.dark} !important`,
@@ -113,8 +129,14 @@ const headerStyles = makeStyles(theme => ({
     },
     "&:hover:after": {
       opacity: 1,
-    },
+    }
   },
+  currentLink: {
+    color: `${theme.palette.primary.main} !important`,
+    "&:after": {
+      opacity: 1
+    }
+  }
 }))
 
 Header.propTypes = {
