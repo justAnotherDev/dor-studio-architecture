@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { AppBar, makeStyles } from "@material-ui/core"
-import Logo from "../../assets/DOR-Studio-logo.svg"
+import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
 

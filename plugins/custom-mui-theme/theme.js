@@ -9,6 +9,9 @@ const theme = createTheme({
     secondary: {
       main: '#4c453f',
     },
+    footer: {
+      main: '#527271'
+    }
   },
   typography: {
     fontFamily: 'inherit',

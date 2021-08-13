@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+#___gatsby, #gatsby-focus-wrapper {
+  height: 100%;
+}
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -6,6 +9,7 @@ html {
   font-size: 16px;
   box-sizing: border-box;
   overflow-y: scroll;
+  height: 100%;
 }
 body {
   margin: 0;
@@ -21,10 +25,20 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  width: calc(100% - 1.25rem);
-	margin: 0px auto;
-	box-sizing: content-box;
-	border: 0.625rem solid #ffffff;
+  position: relative;
+  height: 100%;
+}
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main-wrapper {
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 0 1.0875rem 1.45rem;
+  flex-grow: 1;
+  width: 100%;
 }
 article,
 aside,
@@ -397,14 +411,14 @@ dd {
   margin-bottom: 1.45rem;
 }
 p {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  margin: 0 0 0.625rem;
 }
 pre {
   margin-left: 0;

@@ -1,0 +1,17 @@
+[
+  {
+    "header": "ABOUT", 
+    "descr": "DOR Studio Architecture is a small, woman-owned firm, providing design services in support of your vision."
+  },
+  {
+    "header": "LOCATION",
+    "descr": "Based out of Grand Junction, CO\nAvailable for partnership & collaboration",
+    "linkDescr": "(See Services)",
+    "link": "/services"
+  },
+  {
+    "header": "CONTACT",
+    "mailto": "dorstudioarchitecture@gmail.com",
+    "descr": "P: 970.579.1409"
+  }
+]
