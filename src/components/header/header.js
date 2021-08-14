@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { AppBar, makeStyles, withStyles } from "@material-ui/core"
+import { AppBar, makeStyles } from "@material-ui/core"
+import { useLocation } from "@reach/router"
 import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
-import theme from '../../../plugins/custom-mui-theme/theme';
 
-const Header = ({ siteTitle, showAppBar, ...props }) => {
+const Header = ({ siteTitle, showAppBar, location, ...props }) => {
   const classes = headerStyles(props)
-  const [currentNav, setCurrentNav] = useState(null)
+  const [currentNav, setCurrentNav] = useState(useLocation().pathname)
 
   useEffect(() => {
     if (typeof window !== undefined) {
-      setCurrentNav(window.location.pathname)
       if (window.innerWidth > 1024 && window.location.pathname === '/') headerIntroAnimation()
       else {
         gsap.set('.link', {
@@ -60,7 +59,17 @@ const Header = ({ siteTitle, showAppBar, ...props }) => {
           )
         })}
       </div>
-      <Link to="/" className="logo">
+      <div className={classes.menuwrapper}>
+        <div style={{height: '6.25rem', width: '100%'}}></div>
+        <div className={classes.menu}>
+          <div style={{width: '0.965rem', margin: '0.625rem'}}>
+            <div id="bar1" className="bar"></div>
+            <div id="bar2" className="bar"></div>
+            <div id="bar3" className="bar"></div>
+          </div>
+        </div>
+      </div>
+      <Link onClick={() => changeHighlightedLink(null)} to="/" className="logo">
         <Logo className="draw-logo" />
       </Link>
     </AppBar>
@@ -98,6 +107,9 @@ const headerStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "center",
     background: "#fff",
+    '@media(max-width: 64.0625rem)': {
+      display: 'none'
+    }
   },
   link: {
     fontWeight: 700,
@@ -136,6 +148,21 @@ const headerStyles = makeStyles(theme => ({
     "&:after": {
       opacity: 1
     }
+  },
+  menuwrapper: {
+    width: '100%',
+    display: 'none',
+    background: '#fff',
+    '@media(max-width: 64.0625rem)': {
+      display: 'block !important'
+    }
+  },
+  menu: {
+    width: '100%',
+    background: theme.palette.primary.main,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: '0.625rem 0.625rem 0 0.625rem'
   }
 }))
 
