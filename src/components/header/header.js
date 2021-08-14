@@ -7,7 +7,7 @@ import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
 
-const Header = ({ siteTitle, showAppBar, location, ...props }) => {
+const Header = ({ siteTitle, ...props }) => {
   const classes = headerStyles(props)
   const [currentNav, setCurrentNav] = useState(useLocation().pathname)
 
@@ -37,7 +37,7 @@ const Header = ({ siteTitle, showAppBar, location, ...props }) => {
       <div className={classes.appbarwrapper}>
         {linkArray.map((link, i) => {
           const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
-          const match = localLink === currentNav;
+          const match = currentNav.startsWith(localLink);
           return (
             i !== 2 ? (
               <Link 
