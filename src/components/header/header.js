@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
+import { NavContext } from "../../context/NavContext"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import { AppBar, makeStyles } from "@material-ui/core"
-import { useLocation } from "@reach/router"
+import { Link, navigate } from "gatsby"
+import { AppBar, Collapse, makeStyles } from "@material-ui/core"
 import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
 
 const Header = ({ siteTitle, ...props }) => {
   const classes = headerStyles(props)
-  const [currentNav, setCurrentNav] = useState(useLocation().pathname)
+  const [navContext, setNavContext] = useContext(NavContext)
+  const [showLinks, setShowLinks] = useState(false)
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -28,23 +29,32 @@ const Header = ({ siteTitle, ...props }) => {
 
   const linkArray = ["Portfolio", "Services", "", "About", "Contact"]
 
-  function changeHighlightedLink(localLink) {
-    setCurrentNav(localLink)
-  }
+  useEffect(() => {
+    if (navContext[1]) { 
+      setShowLinks(false)
+      setTimeout(() => {
+        navigate(navContext[0])
+      }, 300)
+    }
+  }, [navContext])
 
   return (
     <AppBar position="relative" elevation={0}>
+      <Link tabIndex={0} onClick={() => setNavContext([null, false])} to="/" className="logo">
+        <Logo className="draw-logo" />
+      </Link>
       <div className={classes.appbarwrapper}>
         {linkArray.map((link, i) => {
           const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
-          const match = currentNav.startsWith(localLink);
+          const match = navContext[0]?.startsWith(localLink);
           return (
             i !== 2 ? (
               <Link 
                 key={i} 
                 to={localLink} 
                 className={`${classes.link} link ${match && classes.currentLink}`}
-                onClick={() => changeHighlightedLink(localLink)}
+                onClick={() => setNavContext([localLink, false])}
+                tabIndex={0}
               >
                 <div  
                   style={{ opacity: 0 }} 
@@ -62,16 +72,41 @@ const Header = ({ siteTitle, ...props }) => {
       <div className={classes.menuwrapper}>
         <div style={{height: '6.25rem', width: '100%'}}></div>
         <div className={classes.menu}>
-          <div style={{width: '0.965rem', margin: '0.625rem'}}>
-            <div id="bar1" className="bar"></div>
+          <div 
+            tabIndex={0} 
+            role="menu" 
+            onClick={() => setShowLinks(!showLinks)} 
+            className={`${classes.hamburgerwrapper} ${showLinks ? 'change':""}`}
+            onKeyDown={(e) => { if (e.code === 'Enter') setShowLinks(!showLinks)}}
+          >
+            <div id="bar1" className="change bar"></div>
             <div id="bar2" className="bar"></div>
             <div id="bar3" className="bar"></div>
           </div>
         </div>
+        <Collapse in={showLinks}>
+          <ul className={classes.linkContainer}>
+            {linkArray.filter(link => link !== "").map((link, i) => {
+              const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
+              const match = navContext[0]?.startsWith(localLink);
+              return (
+                <li key={i} style={{margin: 0, lineHeight: '2rem'}}>
+                  <div 
+                    style={{color: match ? '#999' : '#333'}} 
+                    className={classes.menuLink}
+                    onClick={() => setNavContext([localLink, true])}
+                    role="link"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.code === 'Enter') setNavContext([localLink, true])}}
+                  >
+                    {link}
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        </Collapse>
       </div>
-      <Link onClick={() => changeHighlightedLink(null)} to="/" className="logo">
-        <Logo className="draw-logo" />
-      </Link>
     </AppBar>
   )
 }
@@ -162,7 +197,34 @@ const headerStyles = makeStyles(theme => ({
     background: theme.palette.primary.main,
     display: 'flex',
     justifyContent: 'flex-end',
-    padding: '0.625rem 0.625rem 0 0.625rem'
+    padding: '0.625rem'
+  },
+  hamburgerwrapper: {
+    width: '0.965rem', 
+    margin: '0.84375rem 0.625rem',
+    height: '1.125rem',
+    transform: 'translateY(.275rem)',
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  },
+  linkContainer: {
+    borderWidth: `0 0.625rem`,
+    borderStyle: 'solid',
+    borderColor: theme.palette.primary.main,
+    textAlign: 'center',
+    padding: '0.9375rem 0.9375rem 1.5625rem 0.9375rem',
+    listStyle: 'none',
+    margin: 0
+  },
+  menuLink: {
+    fontSize: '16px',
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    margin: 0,
+    '&:hover': {
+      cursor: 'pointer'
+    }
   }
 }))
 

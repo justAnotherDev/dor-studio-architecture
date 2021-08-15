@@ -1,9 +1,11 @@
+import React, { useContext } from "react"
+import { NavContext } from "../../context/NavContext"
 import { makeStyles } from "@material-ui/core"
-import React from "react"
 import "./footer.scss"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 const Footer = props => {
+  const [,setNavContext] = useContext(NavContext)
   const footerData = useStaticQuery(graphql`
     {
       allFooterJson {
@@ -50,7 +52,14 @@ const Footer = props => {
                 )
               })}
               {node.link && (
-                <Link style={{color: 'white'}} to={node.link}>{node.linkDescr}</Link>
+                <span 
+                  onClick={() => setNavContext([node.link, true])} 
+                  className={classes.footerLink}
+                  role="link"
+                  tabIndex={0}
+                >
+                  {node.linkDescr}
+                </span>
               )}
             </span>
           </p>
@@ -86,6 +95,13 @@ const footerStyles = makeStyles(theme => ({
     '@media(max-width:47.9375rem)': {
       marginBottom: '1.25rem',
       width: '100%'
+    }
+  },
+  footerLink: {
+    color: 'white',
+    textDecoration: 'underline',
+    '&:hover': {
+      cursor: 'pointer'
     }
   },
 }))
