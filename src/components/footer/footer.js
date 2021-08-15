@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { NavContext } from "../../context/NavContext"
 import { makeStyles } from "@material-ui/core"
 import "./footer.scss"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Footer = props => {
   const [,setNavContext] = useContext(NavContext)
@@ -53,10 +53,11 @@ const Footer = props => {
               })}
               {node.link && (
                 <span 
-                  onClick={() => setNavContext([node.link, true])} 
+                  onClick={() => setNavContext(node.link)}
                   className={classes.footerLink}
                   role="link"
                   tabIndex={0}
+                  onKeyDown={(e) => { if (e.code === 'Enter') setNavContext(node.link)}}
                 >
                   {node.linkDescr}
                 </span>

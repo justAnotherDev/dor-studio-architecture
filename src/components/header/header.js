@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useState, useContext, useRef } from "react"
 import { NavContext } from "../../context/NavContext"
 import PropTypes from "prop-types"
 import { Link, navigate } from "gatsby"
@@ -11,6 +11,8 @@ const Header = ({ siteTitle, ...props }) => {
   const classes = headerStyles(props)
   const [navContext, setNavContext] = useContext(NavContext)
   const [showLinks, setShowLinks] = useState(false)
+  const menuRef = useRef();
+  const collapseRef = useRef();
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -30,30 +32,38 @@ const Header = ({ siteTitle, ...props }) => {
   const linkArray = ["Portfolio", "Services", "", "About", "Contact"]
 
   useEffect(() => {
-    if (navContext[1]) { 
+    if (collapseRef.current.offsetWidth > 0 && menuRef.current.offsetWidth === 0) { 
       setShowLinks(false)
       setTimeout(() => {
-        navigate(navContext[0])
+        navigate(navContext)
       }, 300)
     }
+    else navigate(navContext)
   }, [navContext])
 
   return (
     <AppBar position="relative" elevation={0}>
-      <Link tabIndex={0} onClick={() => setNavContext([null, false])} to="/" className="logo">
+      <div 
+        role="link" 
+        tabIndex={0} 
+        onClick={() => setNavContext("/")} 
+        to="/" 
+        className="logo"
+        onKeyDown={(e) => { if (e.code === 'Enter') setNavContext("/")}}
+      >
         <Logo className="draw-logo" />
-      </Link>
-      <div className={classes.appbarwrapper}>
+      </div>
+      <div ref={menuRef} className={classes.appbarwrapper}>
         {linkArray.map((link, i) => {
           const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
-          const match = navContext[0]?.startsWith(localLink);
+          const match = navContext?.startsWith(localLink);
           return (
             i !== 2 ? (
               <Link 
                 key={i} 
                 to={localLink} 
                 className={`${classes.link} link ${match && classes.currentLink}`}
-                onClick={() => setNavContext([localLink, false])}
+                onClick={() => setNavContext(localLink)}
                 tabIndex={0}
               >
                 <div  
@@ -84,20 +94,20 @@ const Header = ({ siteTitle, ...props }) => {
             <div id="bar3" className="bar"></div>
           </div>
         </div>
-        <Collapse in={showLinks}>
+        <Collapse ref={collapseRef} in={showLinks}>
           <ul className={classes.linkContainer}>
             {linkArray.filter(link => link !== "").map((link, i) => {
               const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
-              const match = navContext[0]?.startsWith(localLink);
+              const match = navContext?.startsWith(localLink);
               return (
                 <li key={i} style={{margin: 0, lineHeight: '2rem'}}>
                   <div 
                     style={{color: match ? '#999' : '#333'}} 
                     className={classes.menuLink}
-                    onClick={() => setNavContext([localLink, true])}
+                    onClick={() => setNavContext(localLink)}
                     role="link"
                     tabIndex={0}
-                    onKeyDown={(e) => { if (e.code === 'Enter') setNavContext([localLink, true])}}
+                    onKeyDown={(e) => { if (e.code === 'Enter') setNavContext(localLink)}}
                   >
                     {link}
                   </div>
@@ -204,6 +214,8 @@ const headerStyles = makeStyles(theme => ({
     margin: '0.84375rem 0.625rem',
     height: '1.125rem',
     transform: 'translateY(.275rem)',
+    outline: 'none',
+    boxShadow: 'none',
     '&:hover': {
       cursor: 'pointer'
     }
