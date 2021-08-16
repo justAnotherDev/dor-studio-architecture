@@ -1,9 +1,8 @@
-import React, { useContext } from "react"
+import React from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { NavContext } from "../context/NavContext"
+import { useLocation } from "@reach/router"
 
-const Transition = ({ children, location }) => {
-  const [navContext,] = useContext(NavContext)
+const Transition = ({ children }) => {
 
   const duration = 0.35
 
@@ -31,7 +30,7 @@ const Transition = ({ children, location }) => {
   return (
     <AnimatePresence>
       <motion.div
-        key={navContext}
+        key={useLocation().pathname}
         variants={variants}
         initial="initial"
         animate="enter"
