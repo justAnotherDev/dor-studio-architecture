@@ -1,6 +1,5 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 
@@ -20,5 +19,5 @@ const IndexPage = () => (
     />
   </>
 )
-IndexPage.Layout = Layout;
+IndexPage.Layout = Layout
 export default IndexPage

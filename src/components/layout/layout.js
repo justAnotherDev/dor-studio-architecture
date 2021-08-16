@@ -10,13 +10,13 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { NavContext } from "../../context/NavContext"
 import { useLocation } from "@reach/router"
+import Framer from "../framer"
 
 import Header from "../header/header"
 import "./layout.scss"
 import Footer from "../footer/footer"
 
-const Layout = ({ children }) => {
-  
+const Layout = props => {
   const [navContext, setNavContext] = useState(useLocation().pathname)
 
   const data = useStaticQuery(graphql`
@@ -34,7 +34,9 @@ const Layout = ({ children }) => {
       <NavContext.Provider value={[navContext, setNavContext]}>
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <div className="main-wrapper">
-          <main>{children}</main>
+          <Framer {...props}>
+            <main>{props.children}</main>
+          </Framer>
         </div>
         <Footer />
       </NavContext.Provider>
