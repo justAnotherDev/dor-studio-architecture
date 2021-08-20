@@ -1,0 +1,76 @@
+{
+  "name": "Dorothy Shepard",
+  "role": "Principal Architect, LEED AP BD+C",
+  "subheader": {
+    "title": "Dor Studio Architecture",
+    "points": [
+      "Is a small, woman-owned firm dedicated to making sustainable and resilient buildings that work.",
+      "We design environments in primary service of the client’s vision, while aiming to leave a site better than we found it.",
+      "We take a holistic approach, ensuring that building systems and spaces function together to create a healthy and enjoyable place to be.",
+      "We see every project as an extension of the greater building network – with the potential to support a whole stronger than the sum of its parts.",
+      "Our experience has proven this ethos achieves the highest quality design."
+    ]
+  },
+  "experience": [
+    {
+      "header": "DOR Studio (2019-Present)",
+      "points": [
+        { "text": "Palisade Historical Society Visitors Center (Palisade, CO)" },
+        { "text": "Little Blossoms Early Learning Center (Palisade, CO)" },
+        { "text": "Lincoln Woodworks Workshop Expansion (Palisade, CO)" }
+      ]
+    },
+    {
+      "header": "Freelance Architect (2018-2019)",
+      "points": [
+        { "text": "(1) Preschool renovation" },
+        { "text": "(1) Daycare renovation" },
+        { "text": "(4) Home renovations" },
+        { "text": "(1) Barn workshop Design/Build" }
+      ]
+    },
+    {
+      "header": "Kuth/Ranieri Architects – Architectural Designer (2014-2018)",
+      "points": [
+        { "text": "(San Francisco, CA)",
+          "linkText": "Randall Museum Renovation",
+          "link": "https://kuthranieri.com/randall-museum/"
+        },
+        { "text": "(San Francisco, CA)",
+          "linkText": "Chase Center Stadium Esplanade & Lobbies",
+          "link": "https://kuthranieri.com/gsw-chase-arena-esplanade-lobbies/"
+        },
+        { "text": "SFO Aviation Museum Annex (San Francisco, CA)" },
+        { "text": "(Suzhou, China)",
+          "linkText": "Shishan Park Pavilions",
+          "link": "https://kuthranieri.com/shishan-pavilions/"
+        },
+        { "text": "(Corte Madera, CA)",
+          "linkText": "Hillside Courtyard House Renovation",
+          "link": "https://kuthranieri.com/hillside-courtyard-house/"
+        }
+      ]
+    },
+    {
+      "header": "Tulane City Center – Public Interest Design Fellow (2013)",
+      "points": [
+        { "text": "Hollygrove Greenline Master Plan (New Orleans, LA)" },
+        { "text": "Rain Garden Prototype Project (New Orleans, LA)" }
+      ]
+    },
+    {
+      "header": "Rebuilding Together Alexandria – Program Coordinator (2011-2012)"
+    }
+  ],
+  "other_persuits": "As an amateur builder, Dorothy designed and constructed a workshop barn with her partner on their rural Colorado property. Raising trusses with two people and no forklift was her favorite part. She intends to build more structures to continue developing a hands-on understanding of the details she draws. Dorothy is also an avid rock climber and finds stoke every morning from the 400ft granite walls in the backyard.",
+  "images": [
+    {
+      "src": "../images/about/dorothy.jpeg",
+      "alt": "Dorothy carrying a heavy piece of construction lumber"
+    },
+    {
+      "src":"../images/about/building.jpeg",
+      "alt": "Barn built in Unaweep canyon"
+    }
+  ]
+}

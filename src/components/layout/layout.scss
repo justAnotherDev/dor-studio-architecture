@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-#___gatsby, #gatsby-focus-wrapper {
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+#___gatsby,
+#gatsby-focus-wrapper {
   height: 100%;
 }
 html {
@@ -16,7 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: normal;
   text-transform: uppercase;
   word-wrap: break-word;
@@ -27,6 +28,7 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
   position: relative;
   height: 100%;
+  font-size: 0.875rem;
 }
 .app {
   height: 100%;
@@ -35,14 +37,15 @@ body {
 }
 .main-wrapper {
   margin: 0 auto;
-  max-width: 60rem;
-  padding: 0 1.0875rem 1.45rem;
   flex-grow: 1;
   width: 100%;
 }
 article,
 aside,
 details,
+em {
+  font-style: italic;
+}
 figcaption,
 figure,
 footer,
@@ -306,20 +309,15 @@ h3 {
   line-height: 1.1;
 }
 h4 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  margin: 0.625rem 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.1;
 }
 h5 {
@@ -367,16 +365,15 @@ hgroup {
   margin-bottom: 1.45rem;
 }
 ul {
-  margin-left: 1.45rem;
-  margin-right: 0;
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
   margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
+  margin-bottom: 10px;
 }
 ol {
   margin-left: 1.45rem;
@@ -510,7 +507,8 @@ th {
   font-weight: bold;
 }
 li {
-  margin-bottom: calc(1.45rem / 2);
+  display: list-item;
+  line-height: 1.3125rem;
 }
 ol li {
   padding-left: 0;

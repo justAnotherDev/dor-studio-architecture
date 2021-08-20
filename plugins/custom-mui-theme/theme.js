@@ -11,7 +11,11 @@ const theme = createTheme({
     },
     footer: {
       main: '#527271'
-    }
+    },
+    subheader: {
+      main: '#51463b'
+    },
+    link: '#0645ad'
   },
   typography: {
     fontFamily: 'inherit',
