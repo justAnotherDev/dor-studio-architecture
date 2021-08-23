@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
+import Subheader from "../components/subheader"
 
 const IndexPage = props => {
   const classes = aboutStyles(props)
@@ -45,19 +46,7 @@ const IndexPage = props => {
   return (
     <>
       <Seo title="About" />
-      <div className={classes.subheader}>
-        <h4 style={{marginBottom: 0}}>{aboutData.subheader.title}</h4>
-        <p>
-          <span style={{textTransform: 'none'}}>
-            {aboutData.subheader.points.map((point,i) => (
-              <React.Fragment key={i}>
-                {point}
-                <br/>
-              </React.Fragment>
-            ))}
-          </span>
-        </p>
-      </div>
+      <Subheader subheader={aboutData.subheader} />
       <div className={classes.aboutWrapper}>
         <div style={{display: 'flex', justifyContent:'flex-end'}} className={classes.aboutContainer}>
             <div className={classes.aboutPaddingContainer}>
@@ -112,16 +101,6 @@ const IndexPage = props => {
   )
 }
 const aboutStyles = makeStyles(theme => ({
-  subheader: {
-    width: "100%",
-    background: theme.palette.subheader.main,
-    padding: "2.5rem 1.875rem",
-    color: 'white',
-    textAlign: 'center',
-    '@media(max-width: 47.9375rem)': {
-      padding: '2.5rem 0.9375rem'
-    }
-  },
   aboutWrapper: {
     width: '100%',
     marginBottom: '1.875rem',
