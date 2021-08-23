@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Dor Studio Architecture`,
+    title: `DOR Studio Architecture`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,

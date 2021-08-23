@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/layout/layout"
+import Seo from "../components/seo"
 
 const IndexPage = props => {
   const classes = aboutStyles(props)
@@ -43,6 +44,7 @@ const IndexPage = props => {
 
   return (
     <>
+      <Seo title="About" />
       <div className={classes.subheader}>
         <h4 style={{marginBottom: 0}}>{aboutData.subheader.title}</h4>
         <p>
@@ -58,7 +60,7 @@ const IndexPage = props => {
       </div>
       <div className={classes.aboutWrapper}>
         <div style={{display: 'flex', justifyContent:'flex-end'}} className={classes.aboutContainer}>
-            <div style={{width: '80%'}} className={classes.aboutPaddingContainer}>
+            <div className={classes.aboutPaddingContainer}>
               <div className={classes.aboutImageContainer}>
                 {aboutData.images.map((image, idx) => (
                   <div key={idx} style={{margin: '0.9375rem 0'}}>
@@ -145,7 +147,15 @@ const aboutStyles = makeStyles(theme => ({
   },
   aboutPaddingContainer: {
     padding: '0 0.625rem',
-    width: '100%'
+    width: '100%',
+    '&:first-child': {
+      width: '80%'
+    },
+    '@media(max-width: 47.9375rem)': {
+      '&:first-child': {
+        width: '100%'
+      }
+    }
   },
   link: {
     color: theme.palette.link,
