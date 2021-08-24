@@ -8,8 +8,7 @@ const Transition = ({ children }) => {
 
   const variants = {
     initial: {
-      opacity: 0,
-      x: -200
+      opacity: 0
     },
     enter: {
       opacity: 1,
@@ -22,7 +21,6 @@ const Transition = ({ children }) => {
     },
     exit: {
       opacity: 0,
-      x: 200,
       transition: { duration: duration },
     },
   }
