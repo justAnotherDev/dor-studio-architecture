@@ -65,11 +65,11 @@
   "other_persuits": "As an amateur builder, Dorothy designed and constructed a workshop barn with her partner on their rural Colorado property. Raising trusses with two people and no forklift was her favorite part. She intends to build more structures to continue developing a hands-on understanding of the details she draws. Dorothy is also an avid rock climber and finds stoke every morning from the 400ft granite walls in the backyard.",
   "images": [
     {
-      "src": "../images/about/dorothy.jpeg",
+      "src": "../../images/about/dorothy.jpeg",
       "alt": "Dorothy carrying a heavy piece of construction lumber"
     },
     {
-      "src":"../images/about/building.jpeg",
+      "src":"../../images/about/building.jpeg",
       "alt": "Barn built in Unaweep canyon"
     }
   ]

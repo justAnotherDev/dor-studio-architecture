@@ -7,6 +7,7 @@ const IndexPage = () => {
     <>
       <Seo title="Services" />
       <h1>Services</h1>
+      <i className="fa fa-building-o" aria-hidden="true"></i>
     </>
   );
 }

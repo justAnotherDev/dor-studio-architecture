@@ -1,0 +1,67 @@
+{
+  "subheader": {
+    "title": "ARCHITECTURE & SUSTAINABLE DESIGN",
+    "points": [
+      "Services in support of your vision"
+    ]
+  },
+  "info": [
+    {
+      "icon": "fa fa-building-o",
+      "header": "ARCHITECTURE & INTERIOR DESIGN",
+      "subheader": "Our firm strives for design excellence in realizing each client’s unique vision. Every project begins with a clear understanding of the client’s goals and scope. During each phase, we check in with initial objectives to achieve an optimum design within the client’s schedule & budget. Our design services include:",
+      "points": [
+        "Building Design – New Construction & Renovation",
+        "Contractor Selection & Construction Administration",
+        "Code Analysis & Permitting",
+        "Feasibility Study with Cost Estimating",
+        "Energy-Efficiency Assessments",
+        "Site & Space Planning",
+        "Existing Building Analysis & Conditions Report",
+        "As-Built Record Drawings"
+      ] 
+    },
+    {
+      "icon": "fa fa-globe",
+      "header": "RESILIENT & SUSTAINABLE DESIGN",
+      "subheader": "With a LEED AP BD+C & SEED accredited Principal, sustainable and resilient strategies are at the forefront of every DOR Studio design. We believe in leaving a site better than we found it and strengthening the surrounding neighborhood network with systematic, cost-effective solutions. Associated services include:",
+      "points": [
+        "Rating system (LEED, Title 24, Passive House, etc.) coordination & management",
+        "Energy use/production analysis & design",
+        "Water/wastewater use analysis & design",
+        "Indoor air quality analysis & design",
+        "Passive & Resilient building & site design"
+      ]
+    },
+    {
+      "icon": "fa fa-handshake-o",
+      "header": "PARTNERSHIP & COLLABORATION",
+      "subheader": "We believe that great design is founded in collaboration. For other firms seeking to partner with a local, small business Architect – our knowledge of Colorado and the Grand Valley region could complete your team! Expertise we bring to the table includes:",
+      "points": [
+        "Mesa County approvals & permitting process",
+        "Compliance with CO regulations",
+        "State agency approvals",
+        "Designing for regional & micro-climates",
+        "Sourcing regional materials",
+        "Experience with local contractor network"
+      ],
+      "link": "/contact",
+      "linkText": "React out",
+      "remainingText": "to discover if our partnership would make a good fit!"
+    }
+  ],
+  "images": [
+    {
+      "src": "../../images/services/the_property.jpeg",
+      "alt": "Barn frame on our property in Unaweep canyon"
+    },
+    {
+      "src": "../../images/services/two_diagrams.jpeg",
+      "alt": "Diagram of expanding and diversifying networks"
+    },
+    {
+      "src": "../../images/services/hollygrove.jpeg",
+      "alt": "Prospective snapshot of Hollygrove, displaying people walking in the center with a yellow canopy"
+    }
+  ]
+}

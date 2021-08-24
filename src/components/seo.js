@@ -69,7 +69,9 @@ function Seo({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <script src="https://kit.fontawesome.com/dd871b21c6.js" crossOrigin="anonymous" />
+    </Helmet>
   )
 }
 

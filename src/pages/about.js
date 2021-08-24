@@ -10,38 +10,34 @@ const IndexPage = props => {
   const classes = aboutStyles(props)
   const data = useStaticQuery(graphql`
     {
-      allDataJson {
-        edges {
-          node {
-            name
-            role
-            subheader {
-              title
-              points
-            }
-            experience {
-              header
-              points {
-                text
-                linkText
-                link
-              }
-            }
-            other_persuits
-            images {
-              alt
-              src {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
+      aboutJson {
+        name
+        role
+        subheader {
+          title
+          points
+        }
+        experience {
+          header
+          points {
+            text
+            linkText
+            link
+          }
+        }
+        other_persuits
+        images {
+          alt
+          src {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
       }
     }
   `)
-  const aboutData = data.allDataJson.edges[0].node;
+  const aboutData = data.aboutJson;
 
   return (
     <>
