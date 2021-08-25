@@ -54,7 +54,7 @@ const Footer = props => {
               {node.link && (
                 <span 
                   onClick={() => setNavContext(node.link)}
-                  className={classes.footerLink}
+                  className="span-link"
                   role="link"
                   tabIndex={0}
                   onKeyDown={(e) => { if (e.code === 'Enter') setNavContext(node.link)}}
@@ -97,14 +97,7 @@ const footerStyles = makeStyles(theme => ({
       marginBottom: '1.25rem',
       width: '100%'
     }
-  },
-  footerLink: {
-    color: 'white',
-    textDecoration: 'underline',
-    '&:hover': {
-      cursor: 'pointer'
-    }
-  },
+  }
 }))
 
 export default Footer

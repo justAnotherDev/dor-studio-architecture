@@ -15,7 +15,8 @@ const theme = createTheme({
     subheader: {
       main: '#51463b'
     },
-    link: '#0645ad'
+    link: '#0645ad',
+    gridItem: '#eee'
   },
   typography: {
     fontFamily: 'inherit',

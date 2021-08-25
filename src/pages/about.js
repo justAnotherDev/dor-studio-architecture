@@ -68,7 +68,7 @@ const IndexPage = props => {
                 <p><b>{experience.header}</b></p>
                 <ul>
                   {experience.points && experience.points.map((point, index) => (
-                    <li key={index}>
+                    <li style={{lineHeight: '1.3125rem'}} key={index}>
                       {point.link && point.linkText ?
                         <>
                           <a 
@@ -111,7 +111,7 @@ const aboutStyles = makeStyles(theme => ({
     width: '100%'
   },
   aboutContainer: {
-    backgroundColor: '#eee',
+    backgroundColor: theme.palette.gridItem,
     padding: '2.3rem 1.875rem 1.875rem',
     width: 'calc(50% - 0.9375rem)',
     textTransform: 'none',

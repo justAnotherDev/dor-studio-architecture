@@ -27,6 +27,7 @@ const subheaderStyles = makeStyles(theme => ({
     padding: "2.5rem 1.875rem",
     color: "white",
     textAlign: "center",
+    minHeight: '9.375rem',
     "@media(max-width: 47.9375rem)": {
       padding: "2.5rem 0.9375rem",
     }

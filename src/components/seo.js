@@ -70,7 +70,7 @@ function Seo({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <script src="https://kit.fontawesome.com/dd871b21c6.js" crossOrigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </Helmet>
   )
 }
