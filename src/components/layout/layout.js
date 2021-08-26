@@ -7,9 +7,7 @@
 
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import { NavContext } from "../../context/NavContext"
-import { useLocation } from "@reach/router"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import Framer from "../framer"
 
 import Header from "../header/header"
@@ -17,8 +15,8 @@ import "./layout.scss"
 import Footer from "../footer/footer"
 
 const Layout = props => {
-  const [navContext, setNavContext] = useState(useLocation().pathname)
-
+  const [dropDown, setDropDown] = useState(false)
+  
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,17 +27,32 @@ const Layout = props => {
     }
   `)
 
+  function route(route) {
+    if (dropDown) {
+      setDropDown(false)
+      setTimeout(() => {
+        navigate(route)
+      }, 300)
+    } else navigate(route)
+  }
+
+  const childrenWithProps = React.cloneElement(props.children, { route })
+
   return (
     <div className="app">
-      <NavContext.Provider value={[navContext, setNavContext]}>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <div className="main-wrapper">
-          <Framer {...props}>
-            <main>{props.children}</main>
-          </Framer>
-        </div>
-        <Footer />
-      </NavContext.Provider>
+      <Header
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+        pathname={props.location.pathname}
+        route={route}
+        dropDown={dropDown}
+        setDropDown={setDropDown}
+      />
+      <div className="main-wrapper">
+        <Framer {...props}>
+          <main>{childrenWithProps}</main>
+        </Framer>
+      </div>
+      <Footer route={route} />
     </div>
   )
 }

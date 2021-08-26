@@ -1,11 +1,9 @@
-import React, { useContext } from "react"
-import { NavContext } from "../../context/NavContext"
+import React from "react"
 import { makeStyles } from "@material-ui/core"
 import "./footer.scss"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Footer = props => {
-  const [,setNavContext] = useContext(NavContext)
+const Footer = ({ route, ...props }) => {
   const footerData = useStaticQuery(graphql`
     {
       allFooterJson {
@@ -53,11 +51,11 @@ const Footer = props => {
               })}
               {node.link && (
                 <span 
-                  onClick={() => setNavContext(node.link)}
+                  onClick={() => route(node.link)}
                   className="span-link"
                   role="link"
                   tabIndex={0}
-                  onKeyDown={(e) => { if (e.code === 'Enter') setNavContext(node.link)}}
+                  onKeyDown={(e) => { if (e.code === 'Enter') route(node.link)}}
                 >
                   {node.linkDescr}
                 </span>

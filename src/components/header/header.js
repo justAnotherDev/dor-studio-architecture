@@ -1,18 +1,13 @@
-import React, { useEffect, useState, useContext, useRef } from "react"
-import { NavContext } from "../../context/NavContext"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { AppBar, Collapse, makeStyles } from "@material-ui/core"
 import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
 
-const Header = ({ siteTitle, ...props }) => {
+const Header = ({ siteTitle, pathname, dropDown, setDropDown, route, ...props }) => {
   const classes = headerStyles(props)
-  const [navContext, setNavContext] = useContext(NavContext)
-  const [showLinks, setShowLinks] = useState(false)
-  const menuRef = useRef();
-  const collapseRef = useRef();
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -31,39 +26,29 @@ const Header = ({ siteTitle, ...props }) => {
 
   const linkArray = ["Portfolio", "Services", "", "About", "Contact"]
 
-  useEffect(() => {
-    if (collapseRef.current.offsetWidth > 0 && menuRef.current.offsetWidth === 0) { 
-      setShowLinks(false)
-      setTimeout(() => {
-        navigate(navContext)
-      }, 300)
-    }
-    else navigate(navContext)
-  }, [navContext])
-
   return (
     <AppBar position="relative" elevation={0}>
       <div 
         role="link" 
         tabIndex={0} 
-        onClick={() => setNavContext("/")} 
+        onClick={() => route("/")} 
         to="/" 
         className="logo"
-        onKeyDown={(e) => { if (e.code === 'Enter') setNavContext("/")}}
+        onKeyDown={(e) => { if (e.code === 'Enter') route("/")}}
       >
         <Logo className="draw-logo" />
       </div>
-      <div ref={menuRef} className={classes.appbarwrapper}>
+      <div className={classes.appbarwrapper}>
         {linkArray.map((link, i) => {
-          const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
-          const match = navContext?.startsWith(localLink);
+          const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}/`;
+          const match = pathname?.startsWith(localLink);
           return (
             i !== 2 ? (
               <Link 
                 key={i} 
                 to={localLink} 
                 className={`${classes.link} link ${match && classes.currentLink}`}
-                onClick={() => setNavContext(localLink)}
+                onClick={() => route(localLink)}
                 tabIndex={0}
               >
                 <div  
@@ -85,29 +70,29 @@ const Header = ({ siteTitle, ...props }) => {
           <div 
             tabIndex={0} 
             role="menu" 
-            onClick={() => setShowLinks(!showLinks)} 
-            className={`${classes.hamburgerwrapper} ${showLinks ? 'change':""}`}
-            onKeyDown={(e) => { if (e.code === 'Enter') setShowLinks(!showLinks)}}
+            onClick={() => setDropDown(!dropDown)} 
+            className={`${classes.hamburgerwrapper} ${dropDown ? 'change':""}`}
+            onKeyDown={(e) => { if (e.code === 'Enter') setDropDown(!dropDown)}}
           >
             <div id="bar1" className="change bar"></div>
             <div id="bar2" className="bar"></div>
             <div id="bar3" className="bar"></div>
           </div>
         </div>
-        <Collapse ref={collapseRef} in={showLinks}>
+        <Collapse in={dropDown}>
           <ul className={classes.linkContainer}>
             {linkArray.filter(link => link !== "").map((link, i) => {
-              const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}`;
-              const match = navContext?.startsWith(localLink);
+              const localLink = `/${link.charAt(0).toLowerCase()}${link.substring(1)}/`;
+              const match = pathname?.startsWith(localLink);
               return (
                 <li key={i} style={{margin: 0, lineHeight: '2rem'}}>
                   <div 
                     style={{color: match ? '#999' : '#333'}} 
                     className={classes.menuLink}
-                    onClick={() => setNavContext(localLink)}
+                    onClick={() => route(localLink)}
                     role="link"
                     tabIndex={0}
-                    onKeyDown={(e) => { if (e.code === 'Enter') setNavContext(localLink)}}
+                    onKeyDown={(e) => { if (e.code === 'Enter') route(localLink)}}
                   >
                     {link}
                   </div>

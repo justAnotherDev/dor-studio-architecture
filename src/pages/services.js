@@ -1,15 +1,13 @@
-import React, { useContext } from "react"
+import React from "react"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import Subheader from "../components/subheader"
 import { makeStyles } from "@material-ui/core"
-import { NavContext } from "../context/NavContext"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const IndexPage = props => {
+const IndexPage = ({ route, ...props }) => {
   const classes = servicesStyles(props)
-  const [, setNavContext] = useContext(NavContext)
   const data = useStaticQuery(graphql`
     {
       servicesJson {
@@ -38,7 +36,7 @@ const IndexPage = props => {
     }
   `)
   const servicesData = data.servicesJson
-  console.log(servicesData)
+  
   return (
     <>
       <Seo title="Services" />
@@ -61,12 +59,12 @@ const IndexPage = props => {
                 {item.link && item.linkText && item.remainingText && (
                   <p>
                     <span
-                      onClick={() => setNavContext(item.link)}
+                      onClick={() => route(item.link)}
                       className="span-link"
                       role="link"
                       tabIndex={0}
                       onKeyDown={e => {
-                        if (e.code === "Enter") setNavContext(item.link)
+                        if (e.code === "Enter") route(item.link)
                       }}
                     >
                       {item.linkText}
