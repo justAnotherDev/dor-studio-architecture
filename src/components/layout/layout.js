@@ -49,7 +49,7 @@ const Layout = props => {
       />
       <div className="main-wrapper">
         <Framer {...props}>
-          <main>{childrenWithProps}</main>
+          <main style={{ height: '100%' }}>{childrenWithProps}</main>
         </Framer>
       </div>
       <Footer route={route} />
