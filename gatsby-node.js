@@ -6,18 +6,16 @@
 
 // You can delete this file if you're not using it
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  switch (stage) {
-    case 'build-html':
-      actions.setWebpackConfig({
-        module: {
-          rules: [
-            {
-              test: /react-leaflet/,
-              use: [loaders.null()]
-            }
-          ]
-        }
-      });
-      break;
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-leaflet|leaflet/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
   }
-};
+}

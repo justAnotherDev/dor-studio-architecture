@@ -1,7 +1,23 @@
 import React, { useEffect } from "react"
+import L from 'leaflet'
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
+import "leaflet/dist/leaflet.css"
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
+
+if (typeof window !== 'undefined') {
+  let DefaultIcon = L.icon({
+    ...L.Icon.Default.prototype.options,
+    iconUrl: icon,
+    iconRetinaUrl: iconRetina,
+    shadowUrl: iconShadow
+  });
+  
+  L.Marker.prototype.options.icon = DefaultIcon;
+}
 
 const IndexPage = () => {
   useEffect(() => {
