@@ -5,10 +5,10 @@ import Seo from "../components/seo"
 
 const IndexPage = () => {
   useEffect(() => {
-    setTimeout(() => window.dispatchEvent(new Event('resize')), 350)
+    setTimeout(() => window.dispatchEvent(new Event("resize")), 350)
   }, [])
-  const centerPosition = [39.0637842,-109.313682]
-  const markerPosition = [39.0637842,-108.5507189]
+  const centerPosition = [39.0637842, -109.313682]
+  const markerPosition = [39.0637842, -108.5507189]
   const mapProps = {
     doubleClickZoom: false,
     closePopupOnClick: false,
@@ -18,7 +18,7 @@ const IndexPage = () => {
     touchZoom: false,
     scrollWheelZoom: false,
   }
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     return (
       <>
         <Seo title="Contact" />
