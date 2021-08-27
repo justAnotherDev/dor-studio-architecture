@@ -16,7 +16,8 @@ const theme = createTheme({
       main: '#51463b'
     },
     link: '#0645ad',
-    gridItem: '#eee'
+    gridItem: '#eee',
+    lightText: '#666666'
   },
   typography: {
     fontFamily: 'inherit',

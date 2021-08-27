@@ -1,0 +1,22 @@
+{
+  "header": "Contact",
+  "subheader": "Get in touch",
+  "points": [ 
+    {
+      "indicator": "Based out of",
+      "text": "Grand Junction, CO"
+    },
+    {
+      "indicator": "Phone",
+      "text": "970.579.1409"
+    },
+    {
+      "indicator": "Email",
+      "email": true
+    }
+  ],
+  "email": "dorstudioarchitecture@gmail.com",
+  "markerCoordinates": [39.0637842, -108.5507189],
+  "mapCenterCoordinates": [39.0637842, -109.313682],
+  "zoomLevel": 9.5
+}

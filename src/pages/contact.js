@@ -1,6 +1,8 @@
 import React, { useEffect } from "react"
 import L from 'leaflet'
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet"
+import { useStaticQuery, graphql } from "gatsby"
+import { makeStyles } from "@material-ui/styles"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import "leaflet/dist/leaflet.css"
@@ -19,13 +21,32 @@ if (typeof window !== 'undefined') {
   L.Marker.prototype.options.icon = DefaultIcon;
 }
 
-const IndexPage = () => {
+const IndexPage = props => {
+  const { contactJson } = useStaticQuery(graphql`
+    {
+      contactJson {
+        header
+        subheader
+        points {
+          indicator
+          text
+          email
+        }
+        email
+        markerCoordinates
+        mapCenterCoordinates
+        zoomLevel
+      }
+    }
+  `)
+  const classes = contactStyles(props)
   useEffect(() => {
     setTimeout(() => window.dispatchEvent(new Event("resize")), 350)
   }, [])
-  const centerPosition = [39.0637842, -109.313682]
-  const markerPosition = [39.0637842, -108.5507189]
   const mapProps = {
+    className: classes.mapContainer,
+    center: contactJson.mapCenterCoordinates,
+    zoom: contactJson.zoomLevel,
     doubleClickZoom: false,
     closePopupOnClick: false,
     dragging: false,
@@ -36,29 +57,89 @@ const IndexPage = () => {
   }
   if (typeof window !== 'undefined') {
     return (
-      <>
+      <div className={classes.contactWrapper}>
         <Seo title="Contact" />
         <MapContainer
-          style={{ height: "100%" }}
-          center={centerPosition}
-          zoom={9.5}
-          on
           {...mapProps}
         >
           <TileLayer
             attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
-          <Marker position={markerPosition}>
+          <Marker position={contactJson.markerCoordinates}>
             <Tooltip sticky>
               DOR Studio Architecture <br /> based out of <br /> Grand Junction
             </Tooltip>
           </Marker>
         </MapContainer>
-      </>
+        <div className={classes.textWrapper}>
+          <h2 style={{ color: '#333333' }}>{contactJson.header}</h2>
+          <h4 style={{ fontWeight: 300, textTransform: 'none', marginBottom: '1.9375rem' }}>
+            <a className="discrete-link" href={`mailto:${contactJson.email}`}>{contactJson.subheader}</a>
+          </h4>
+          {contactJson.points.map((section, i) => (
+            <div key={i} className={classes.section}>
+              <p style={{ textTransform: 'uppercase' }}><b>{section.indicator}</b></p>
+              <p>
+                {section.email ? 
+                  <a className="discrete-link" href={`mailto:${contactJson.email}`}>{contactJson.email}</a>
+                : 
+                  section.text
+                }
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     )
   }
   return null
 }
+const contactStyles = makeStyles(theme => ({
+  contactWrapper: { 
+    height: '37.5rem',
+    width: '100%',
+    position: 'relative',
+    '@media(max-width: 47.9375rem)': {
+      height: 'auto'
+    }
+  },
+  mapContainer: {
+    height: '100%',
+    minHeight: '21.875rem'
+  },
+  textWrapper: {
+    height: '100%',
+    width: '50%',
+    background: 'linear-gradient(to right, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    padding: '6.25rem',
+    zIndex: 400,
+    color: theme.palette.lightText,
+    '@media(max-width: 75rem)': {
+      padding: '1.875rem',
+    },
+    '@media(max-width: 47.9375rem)': {
+      height: 'auto',
+      position: 'relative',
+      width: '100%',
+      background: 'none'
+    }
+  },
+  section: {
+    '& p': {
+      margin: 0
+    },
+    textTransform: 'none',
+    marginBottom: '1.3125rem',
+    '&:last-child': {
+      marginBottom: 0
+    }
+  },
+
+}))
 IndexPage.Layout = Layout
 export default IndexPage
