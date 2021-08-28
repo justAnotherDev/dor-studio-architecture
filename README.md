@@ -1,6 +1,8 @@
 # DOR Studio Architecture :house:
 ![](https://dorstudio.netlify.app/icons/icon-144x144.png?v=c6ecc4671cdb2c68474ab2642a5b1fdb)
+
 https://dorstudio.netlify.app
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6bed18e4-624f-4e3c-ba8e-eb747fd351f6/deploy-status)](https://app.netlify.com/sites/dorstudio/deploys)
 
 ##  🚀 Quick start
