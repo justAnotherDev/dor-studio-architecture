@@ -21,7 +21,7 @@ const IndexPage = props => {
             subheader
             src {
               childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
+                gatsbyImageData(transformOptions: {cropFocus: CENTER}, width: 460, height: 636)
               }
             }
             alt
@@ -65,7 +65,7 @@ const IndexPage = props => {
   return (
     <>
       <Seo title="" />
-      <Slider {...settings}>
+      <Slider style={{ margin: '0.5rem 0' }} {...settings}>
         {homeData.map((item, i) => (
             <div key={i}>
               <GatsbyImage

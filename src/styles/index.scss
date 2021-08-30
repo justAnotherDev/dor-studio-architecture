@@ -1,5 +1,12 @@
 $white: #fff;
 
+.carousel-item {
+  width: 26.5rem;
+  height: 39.75rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
 .overlay {
   position: absolute;
   inset: 1.25rem 1.5rem;
