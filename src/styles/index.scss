@@ -1,0 +1,68 @@
+$white: #fff;
+
+.overlay {
+  position: absolute;
+  inset: 1.25rem 1.5rem;
+  line-height: 1.25rem;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+}
+.overlay:hover {
+  opacity: 1;
+}
+
+.overlay-inner {
+  position: absolute;
+  inset: 1.875rem
+}
+
+.overlay-inner:before {
+  content: "";
+  width: 0;
+  height: 0;
+  transition: width 0.4s 0.4s, height 0.4s 0.4s;
+}
+
+.overlay:hover .overlay-inner:before {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top: 0.0625rem solid $white;
+  border-right: 0.0625rem solid $white;
+}
+
+.overlay-text {
+  color: $white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.text-header {
+  font-weight: 200;
+  transition: opacity 0.4s 0.3s;
+  text-transform: none;
+  -webkit-font-smoothing: initial;
+}
+
+.text-subheader {
+  text-transform: uppercase;
+  transition: opacity 0.4s 0.6s;
+  -webkit-font-smoothing: initial;
+}
+
+.text-header, .text-subheader {
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.overlay:hover .text-header, .overlay:hover .text-subheader {
+  opacity: 1;
+}
+

@@ -7,13 +7,18 @@ import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick"
 import { GatsbyImage } from "gatsby-plugin-image"
 import CarouselArrow from "../components/carouselArrow"
+import { makeStyles } from "@material-ui/core"
+import '../styles/index.scss'
 
 const IndexPage = props => {
+  const classes = homeStyles(props)
   const data = useStaticQuery(graphql`
     {
       allHomeJson {
         edges {
           node {
+            header
+            subheader
             src {
               childImageSharp {
                 gatsbyImageData(layout: FULL_WIDTH)
@@ -67,6 +72,14 @@ const IndexPage = props => {
                 image={item.node.src.childImageSharp.gatsbyImageData}
                 alt={item.node.alt}
               />
+              <div className={`overlay ${classes.overlay}`}>
+                <div className="overlay-inner">
+                  <div className="overlay-text">
+                    <h4 className="text-header">{item.node.header}</h4>
+                    <h6 className="text-subheader">{item.node.subheader}</h6>
+                  </div>
+                </div>
+              </div>
             </div>
           )
         )}
@@ -74,6 +87,12 @@ const IndexPage = props => {
     </>
   )
 }
+
+const homeStyles = makeStyles(theme => ({
+  overlay: {
+    backgroundColor: `${theme.palette.primary.main}CC`,
+  }
+}))
 
 IndexPage.Layout = Layout
 export default IndexPage

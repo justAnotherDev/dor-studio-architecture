@@ -1,25 +1,37 @@
 [
   {
+    "header": "Unaweep Workshop",
+    "subheader": "Residential",
     "src": "../../images/home/unaweep.jpeg",
     "alt": "Unaweep Workshop"
   },
   {
+    "header": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
+    "subheader": "Conceptual Public/Civic Resilient/Sustainable",
     "src": "../../images/home/hollygrove.jpeg",
     "alt": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project"
   },
   {
+    "header": "Carrollton River Center",
+    "subheader": "Conceptual Public/Civic Resilient/Sustainable ",
     "src": "../../images/home/carrollton.jpeg",
     "alt": "Carrollton River Center"
   },
   {
+    "header": "Disater Relief Shelter",
+    "subheader": "Residential Resilient/Sustainable ",
     "src": "../../images/home/relief.jpeg",
     "alt": "Disater Relief Shelter"
   },
   {
+    "header": "New Orleans Dance Academy",
+    "subheader": "Conceptual Educational Resilient/Sustainable",
     "src": "../../images/home/dance.jpeg",
     "alt": "New Orleans Dance Academy"
   },
   {
+    "header": "Teaching Resilience in Changing Climates",
+    "subheader": "Conceptual Educational Public/Civic Resilient/Sustainable",
     "src": "../../images/home/resilience.jpeg",
     "alt": "Teaching Resilience in Changing Climates"
   }
