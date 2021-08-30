@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "teaching-resilience",
+    "project_name": "Teaching Resilience in Changing Climates",
+    "descr": "A didactic architecture, encouraging environmental consciousness through everyday experience.\nTo achieve optimum resilience in a changing climate, every citizen needs to understand and be involved in an integrated network of resources and information. This requires a didactic architecture that exposes and communicates information about resource flows, encouraging adaptation for sustainability and disaster mitigation. The increasing need for resilience calls for new, multifunctioning infrastructure that deals with more than simple one-directional flows of resources and information. Existing flows occur primarily through lines and nodes of movement and collection. Architecture finds its place in this new infrastructure by occupying and providing surfaces for spreading out the intersections of resource flows. Building form thereby serves as a place for resilient infrastructure to diversify, adapt, and be communicated.\nIn an environment that exposes infrastructure instead of burying it and that communicates system processes instead of masking them, a shared understanding of resource flows and their impacts can form. Such comprehension, in combination with quantified building performance and room for adaptation, can teach new habits for resilient resource consumption and maximize the value of a structure for a community. The explicit learning environment of schools and the social networks associated with them position a grade school design as the ideal building type for most efficiently and effectively increasing a community's resilience.",
+    "project_data": [
+      {
+        "header": "Location",
+        "descr" : "Hollygrove Neighborhood, New Orleans, LA"
+      },
+      {
+        "header": "Date",
+        "descr" : "2014 (conceptual design)"
+      },
+      {
+        "header": "Project Type",
+        "descr" : "Resilient/Sustainable\nEducational\nPublic/Civic"
+      }
+    ],
+    "carousel": true
+
+  }
+]
