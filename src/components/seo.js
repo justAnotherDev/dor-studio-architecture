@@ -27,14 +27,13 @@ function Seo({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s – ${defaultTitle}` : null}
+      title={title ? title : defaultTitle}
+      titleTemplate={title ? `%s – ${defaultTitle}` : defaultTitle}
       meta={[
         {
           name: `description`,
