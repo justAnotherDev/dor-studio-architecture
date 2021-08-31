@@ -20,7 +20,6 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 }
 
-const path = require('path')
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
   try {
     const { data } = await graphql(`
@@ -30,7 +29,10 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           node {
             slug
             project_name
-            descr
+            descr {
+              style
+              text
+            }
             project_data {
               header
               descr
@@ -45,7 +47,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       const { slug, ...project } = edge.node;
       createPage({
         path: `/projects/${slug}/`,
-        component: path.resolve('./src/components/project/project.js'),
+        component: require.resolve('./src/components/project/project.js'),
         context: {
           data: project,
         },
