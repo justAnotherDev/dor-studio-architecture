@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+@import url('slick-carousel/slick/slick.css');
+@import url('slick-carousel/slick/slick-theme.css');
 #___gatsby,
 #gatsby-focus-wrapper {
   height: 100%;
@@ -44,17 +46,14 @@ body {
 .leaflet-top.leaflet-left {
   display: none;
 }
-.slick-list {
-  margin: 0 -0.5rem;
-}
 .slick-slide > div {
   padding: 0 0.5rem;
 }
 .slick-arrow.slick-next {
-  margin-right: 0.5rem;
+  right: 0;
 }
 .slick-arrow.slick-prev {
-  margin-left: 0.5rem;
+  left: 0;
 }
 .slick-arrow.slick-next:hover, .slick-arrow.slick-prev:hover {
   background: #fff;

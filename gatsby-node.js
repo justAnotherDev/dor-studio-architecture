@@ -38,6 +38,13 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
               descr
             }
             carousel
+            images {
+              src {
+                childrenImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }

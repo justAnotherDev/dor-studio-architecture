@@ -28,6 +28,28 @@
         "descr": "Resilient/Sustainable\nEducational\nPublic/Civic"
       }
     ],
-    "carousel": true
+    "carousel": true,
+    "images": [
+      {
+        "src": "../../images/projects/teaching-resilience/two-diagrams.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/teaching-resilience/SitePlans.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/teaching-resilience/SectionPerspective.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/teaching-resilience/teaching-resilience-perspective.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/teaching-resilience/Perspectives.jpeg",
+        "alt": null
+      }
+    ]
   }
 ]

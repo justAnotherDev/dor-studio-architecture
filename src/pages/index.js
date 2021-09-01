@@ -1,8 +1,6 @@
 import * as React from "react"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
 import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -37,8 +35,8 @@ const IndexPage = props => {
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    nextArrow: <CarouselArrow prevDirection={false} />,
-    prevArrow: <CarouselArrow prevDirection={true} />,
+    nextArrow: <CarouselArrow prevDirection={false} shiftAmount="0.5rem" />,
+    prevArrow: <CarouselArrow prevDirection={true} shiftAmount="0.5rem" />,
     responsive: [
       {
         breakpoint: 1200,

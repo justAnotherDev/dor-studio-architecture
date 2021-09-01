@@ -1,7 +1,7 @@
 import React from 'react';
 import theme from '../../plugins/custom-mui-theme/theme';
  
-const CarouselArrow = ({ prevDirection, className, onClick }) => {
+const CarouselArrow = ({ prevDirection, shiftAmount, className, onClick }) => {
   const styles = {
     iconContainer: {
       position: 'absolute',
@@ -27,7 +27,11 @@ const CarouselArrow = ({ prevDirection, className, onClick }) => {
     <div 
       className={`${className}`} 
       onClick={onClick}
-      style={prevDirection ? { left: '0px', ...styles.iconContainer } : { right: '0px', ...styles.iconContainer }}
+      style={prevDirection ? 
+          { marginLeft: shiftAmount ? shiftAmount : 0, ...styles.iconContainer } 
+        : 
+          { marginRight: shiftAmount ? shiftAmount : 0, ...styles.iconContainer }
+      }
       role="none"
     >
       <i className={`fa fa-angle-${prevDirection ? 'left' : 'right'}`}></i>
