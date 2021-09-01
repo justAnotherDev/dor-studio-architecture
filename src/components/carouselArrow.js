@@ -10,17 +10,13 @@ const CarouselArrow = ({ prevDirection, shiftAmount, className, onClick }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      top: '50%',
       color: theme.palette.primary.main,
       border: '0.125rem solid',
       cursor: 'pointer',
       zIndex: 10,
       textAlign: 'center',
       transition: 'all 0.4s ease-in-out',
-      fontSize: '1.125rem',
-      '&:hover': {
-        background: '#fff'
-      }
+      fontSize: '1.125rem'
     }
   }
   return (

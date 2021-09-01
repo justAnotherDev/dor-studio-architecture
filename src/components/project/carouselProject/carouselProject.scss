@@ -64,4 +64,18 @@
   .slick-slide > div {
     padding: 0;
   }
+  @media(max-width: 47.9375rem) {
+    .slick-arrow.slick-prev, .slick-arrow.slick-next {
+      inset: initial;
+      bottom: 1.875rem;
+    }
+    .slick-arrow.slick-prev {
+      right: 50%;
+      margin-right: 0.125rem;
+    }
+    .slick-arrow.slick-next {
+      left: 50%;
+      margin-left: 0.125rem;
+    }
+  }
 }
