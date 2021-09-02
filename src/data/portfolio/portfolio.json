@@ -61,5 +61,68 @@
         "link": "unaweep-workshop/"
       }
     }
+  }, 
+  {
+    "slug": "carrollton-river-center",
+    "project_name": "Carrollton River Center",
+    "descr": [
+      {
+        "style": "italic",
+        "text": "A Complex Site Requires a Complex Solution"
+      },
+      {
+        "text": "The Carrollton River Center serves as both stormwater infrastructure and community amenity. The system of buildings and landscape elements deal with a complex set of intersecting infrastructural elements, such as a canal and pumping station, a frequently passing train, various motor and pedestrian traffics, and the Mississippi River"
+      },
+      {
+        "text": "Each building and landscape element must serve multiple functions to maneuver the complexities of the site. For example, a large constructed wetland serves as a relief area for the open canal, improves the waterâ€™s quality, and delivers it for irrigation in the adjacent tree nursery. The community center both serves an expressed need by neighborhood residents and also acts as an anchor for the end of Oak Street, with an aim to expand the commercial developments to the east."
+      }
+    ],
+    "project_data": [
+      {
+        "header": "Location",
+        "descr": "Carrollton Neighborhood, New Orleans, LA"
+      },
+      {
+        "header": "Site Context",
+        "descr": "At the edge of a residential neighborhood, between a set of railroad tracks and the Mississippi River, the site is located at a complicated infrastructural nexus."
+      },
+      {
+        "header": "Date",
+        "descr": "2013 (conceptual)"
+      },
+      {
+        "header": "Project Type",
+        "descr": "Public/Civic\nResilient/Sustainable"
+      }
+    ],
+    "carousel": true,
+    "images": [
+      {
+        "src": "../../images/projects/carrollton-river-center/Carrollton-River-Center_Aerial-Views.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/carrollton-river-center/systems-diagram.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/carrollton-river-center/levee-access-section.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/carrollton-river-center/levee-access-section2.jpeg",
+        "alt": null
+      }
+    ],
+    "navigation": {
+      "prev": {
+        "projectName": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
+        "link": "hollygrove-greenline-master-plan/"
+      },
+      "next": {
+        "projectName": "Disaster Relief Shelter",
+        "link": "disaster-relief-shelter/"
+      }
+    }
   }
 ]

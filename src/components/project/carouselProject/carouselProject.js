@@ -24,7 +24,7 @@ const CarouselProject = ({ project, ...props }) => {
       <Slider {...settings}>
         {project.images.map((image, i) => (
           <div key={i}>
-            <GatsbyImage style={{ height: '70vh' }} image={image.src.childrenImageSharp[0].gatsbyImageData} alt={image?.alt ? image.alt : "alt"} />
+            <GatsbyImage style={{ height: '70vh', width: '100%' }} image={image.src.childrenImageSharp[0].gatsbyImageData} alt={image?.alt ? image.alt : "alt"} />
           </div>
         ))}
       </Slider>
