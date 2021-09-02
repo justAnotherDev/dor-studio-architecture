@@ -45,6 +45,16 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                 }
               }
             }
+            navigation {
+              prev {
+                projectName
+                link
+              }
+              next {
+                projectName
+                link
+              }
+            }
           }
         }
       }

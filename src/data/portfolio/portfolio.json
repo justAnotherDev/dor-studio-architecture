@@ -50,6 +50,16 @@
         "src": "../../images/projects/teaching-resilience/Perspectives.jpeg",
         "alt": null
       }
-    ]
+    ],
+    "navigation": {
+      "prev": {
+        "projectName": "New Orleans Dance Academy",
+        "link": "new-orleans-dance-academy/"
+      },
+      "next": {
+        "projectName": "Unaweep Workshop",
+        "link": "unaweep-workshop/"
+      }
+    }
   }
 ]

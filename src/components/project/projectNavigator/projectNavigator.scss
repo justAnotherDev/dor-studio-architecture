@@ -1,0 +1,62 @@
+.project-nav {
+  padding: 0 2.5rem;
+  border-top: 0.0625rem solid;
+  border-bottom: 0.0625rem solid;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  h4 {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+  span {
+    font-size: 0.75rem;
+    line-height: 1.3125rem;
+    text-transform: none;
+  }
+  div {
+    float: left;
+  }
+  @media(max-width: 47.9375rem) {
+    padding: 0 0.9375rem;
+  }
+}
+
+.project-nav > div > a {
+  padding: 2.5rem 0;
+  display: block;
+  text-decoration: none;
+  outline: 0;
+}
+
+.prev-project, .next-project {
+  width: 47%;
+  @media(max-width: 61.9375rem) {
+    width: 45%;
+  }
+  @media(max-width: 47.9375rem) {
+    width: 40%;
+  }
+}
+
+.prev-project {
+  border-right: 0.0625rem solid;
+}
+
+.next-project {
+  border-left: 0.0625rem solid;
+  text-align: right;
+}
+
+.all-projects {
+  width: 6%;
+  text-align: center;
+  font-size: 1.25rem;
+  @media(max-width: 61.9375rem) {
+    width: 10%;
+  }
+  @media(max-width: 47.9375rem) {
+    width: 20%;
+  }
+}
+

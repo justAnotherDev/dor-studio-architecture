@@ -92,6 +92,7 @@ em {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  outline: 0;
 }
 a:active,
 a:hover {
@@ -206,6 +207,9 @@ li > ul {
 }
 li *:last-child {
   margin-bottom: 0;
+}
+nav {
+  display: block;
 }
 p *:last-child {
   margin-bottom: 0;
