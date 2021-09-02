@@ -1,5 +1,8 @@
 .project-wrapper {
   margin: 5rem 0 6.25rem 0;
+  @media(max-width: 61.9375rem) {
+    margin: 3.75rem 0;
+  }
 }
 
 .container {
