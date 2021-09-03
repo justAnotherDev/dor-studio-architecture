@@ -30,7 +30,15 @@ const IndexPage = props => {
           alt
           src {
             childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+              gatsbyImageData(
+                quality: 100
+                webpOptions: {quality: 100}
+                jpgOptions: {quality: 100, progressive: true}
+                avifOptions: {lossless: true, quality: 100}
+                pngOptions: {quality: 100}
+                placeholder: BLURRED
+                breakpoints: 0
+              )
             }
           }
         }
