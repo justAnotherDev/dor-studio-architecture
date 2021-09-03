@@ -21,11 +21,6 @@ const IndexPage = props => {
               childImageSharp {
                 gatsbyImageData(
                   transformOptions: {cropFocus: CENTER}, width: 460, height: 636
-                  quality: 100
-                  webpOptions: {quality: 100}
-                  jpgOptions: {quality: 100, progressive: true}
-                  avifOptions: {lossless: true, quality: 100}
-                  pngOptions: {quality: 100}
                   placeholder: BLURRED
                 )  
               }
