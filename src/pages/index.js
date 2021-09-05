@@ -26,6 +26,7 @@ const IndexPage = props => {
               }
             }
             alt
+            link
           }
         }
       }
@@ -68,7 +69,12 @@ const IndexPage = props => {
       <Seo title="" />
       <Slider style={{ margin: '0.5rem 0' }} {...settings}>
         {homeData.map((item, i) => (
-            <div key={i}>
+            <div 
+              key={i}
+              onClick={() => props.route(`/projects/${item.node.link}`)}
+              role="link"
+              onKeyDown={e => { if (e.code === "Enter") props.route(`/projects/${item.node.link}`) }}
+            >
               <GatsbyImage
                 image={item.node.src.childImageSharp.gatsbyImageData}
                 alt={item.node.alt}

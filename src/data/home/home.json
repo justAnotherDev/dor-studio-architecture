@@ -3,36 +3,42 @@
     "header": "Unaweep Workshop",
     "subheader": "Residential",
     "src": "../../images/about/building.jpeg",
-    "alt": "Unaweep Workshop"
+    "alt": "Unaweep Workshop",
+    "link": "unaweep-workshop"
   },
   {
     "header": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
     "subheader": "Conceptual Public/Civic Resilient/Sustainable",
     "src": "../../images/services/hollygrove.jpeg",
-    "alt": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project"
+    "alt": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
+    "link": "hollygrove-greenline-master-plan"
   },
   {
     "header": "Carrollton River Center",
     "subheader": "Conceptual Public/Civic Resilient/Sustainable ",
     "src": "../../images/projects/carrollton-river-center/Carrollton-River-Center_Aerial-Views.jpeg",
-    "alt": "Carrollton River Center"
+    "alt": "Carrollton River Center",
+    "link": "carrollton-river-center"
   },
   {
     "header": "Disaster Relief Shelter",
     "subheader": "Residential Resilient/Sustainable ",
     "src": "../../images/projects/disaster-relief-shelter/Storyboard_CLADDING.jpeg",
-    "alt": "Disaster Relief Shelter"
+    "alt": "Disaster Relief Shelter",
+    "link": "disaster-relief-shelter"
   },
   {
     "header": "New Orleans Dance Academy",
     "subheader": "Conceptual Educational Resilient/Sustainable",
     "src": "../../images/projects/new-orleans-dance-academy/Corner-Perspective.jpeg",
-    "alt": "New Orleans Dance Academy"
+    "alt": "New Orleans Dance Academy",
+    "link": "new-orleans-dance-academny"
   },
   {
     "header": "Teaching Resilience in Changing Climates",
     "subheader": "Conceptual Educational Public/Civic Resilient/Sustainable",
     "src": "../../images/projects/teaching-resilience/teaching-resilience-perspective.jpeg",
-    "alt": "Teaching Resilience in Changing Climates"
+    "alt": "Teaching Resilience in Changing Climates",
+    "link": "teaching-resilience"
   }
 ]
