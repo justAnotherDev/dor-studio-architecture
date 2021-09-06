@@ -13,6 +13,7 @@ import Framer from "../framer"
 import Header from "../header/header"
 import "./layout.scss"
 import Footer from "../footer/footer"
+import ToTop from "../totop/totop"
 
 const Layout = props => {
   const [dropDown, setDropDown] = useState(false)
@@ -53,6 +54,7 @@ const Layout = props => {
         </Framer>
       </div>
       <Footer route={route} />
+      <ToTop />
     </div>
   )
 }

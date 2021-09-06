@@ -17,6 +17,7 @@ const theme = createTheme({
     },
     link: '#0645ad',
     gridItem: '#eee',
+    icon: '#999999',
     text: '#333333',
     lightText: '#666666',
     extraLightText: '#979797'
