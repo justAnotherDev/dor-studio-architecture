@@ -124,5 +124,59 @@
         "link": "disaster-relief-shelter/"
       }
     }
+  },
+  {
+    "slug": "unaweep-workshop",
+    "project_name": "Unaweep Workshop",
+    "descr": [
+      {
+        "text": "A workshop barn designed for two home-steaders, who plan to keep building on the land they cleared themselves. The building is oriented to handle the powerful wind gusts, intense summer sun, and harsh winters characteristic of the high-desert canyon. A robust wood frame structure and high ceiling with a long clear span accommodate the DIY nature of the owners’ lifestyle."
+      }
+    ],
+    "project_data": [
+      {
+        "header": "Location",
+        "descr": "Unaweep Canyon, Mesa County, CO"
+      },
+      {
+        "header": "Site Context",
+        "descr": "Situated at nearly 7,000ft elevation in a desert climate, the canyon experiences drastic and frequent changes in weather."
+      },
+      {
+        "header": "Date",
+        "descr": "2018"
+      },
+      {
+        "header": "Project Type",
+        "descr": "Residential"
+      }
+    ],
+    "carousel": false,
+    "images": [
+      {
+        "src": "../../images/projects/unaweep-workshop/ladderwork.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/unaweep-workshop/workshop-with-completed-walls.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/unaweep-workshop/workshop-interior.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/about/building.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/services/the_property.jpeg",
+        "alt": null
+      },
+      {
+        "src": "../../images/projects/unaweep-workshop/aerial-shot.jpeg",
+        "alt": null
+      }
+    ]
   }
 ]

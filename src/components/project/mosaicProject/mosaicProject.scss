@@ -1,0 +1,9 @@
+.project-container {
+  margin-top: 5rem;
+  margin-bottom: 6.25rem;
+  color: #979797;
+  @media(max-width: 61.9375rem) {
+    margin-top: 3.75rem;
+    margin-bottom: 3.75rem;
+  }
+}

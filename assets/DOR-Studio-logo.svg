@@ -37,7 +37,7 @@
 
     <rect x="48.752" y="29.488" transform="matrix(0.7071 0.7071 -0.7071 0.7071 50.1349 -41.8147)" fill="none" width="53.588" height="20.255"/>
 
-    <text transform="matrix(0.7071 0.7071 -0.7071 0.7071 60.333 17.0332)" fill="#537271" font-family="'Lato-Light'" font-size="6.75">ARCHITECTURE</text>
+    <text transform="matrix(0.7071 0.7071 -0.7071 0.7071 60.333 17.0332)" fill="#537271" font-family="'Lato'" font-weight="300" font-size="6.75">ARCHITECTURE</text>
   </g>
   <g id="text">
   </g>
