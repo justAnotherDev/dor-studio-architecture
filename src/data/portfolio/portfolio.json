@@ -88,7 +88,7 @@
       },
       {
         "header": "Date",
-        "descr": "2013 (conceptual)"
+        "descr": "2013 (conceptual design)"
       },
       {
         "header": "Project Type",
@@ -144,7 +144,7 @@
       },
       {
         "header": "Date",
-        "descr": "2018"
+        "descr": "2018 (completed)"
       },
       {
         "header": "Project Type",
@@ -177,6 +177,16 @@
         "src": "../../images/projects/unaweep-workshop/aerial-shot.jpeg",
         "alt": null
       }
-    ]
+    ],
+    "navigation": {
+      "prev": {
+        "projectName": "Teaching Resilience in Changing Climates",
+        "link": "teaching-resilience/"
+      },
+      "next": {
+        "projectName": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
+        "link": "hollygrove-greenline-master-plan/"
+      }
+    }
   }
 ]
