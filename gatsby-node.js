@@ -38,6 +38,24 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
               descr
             }
             carousel
+            mosaic {
+              columns
+              images {
+                src {
+                  childrenImageSharp {
+                    gatsbyImageData(
+                      quality: 100
+                      webpOptions: {quality: 100}
+                      jpgOptions: {quality: 100, progressive: true}
+                      avifOptions: {lossless: true, quality: 100}
+                      pngOptions: {quality: 100}
+                      placeholder: BLURRED
+                      breakpoints: 0
+                    )
+                  }
+                }
+              }
+            }
             images {
               src {
                 childrenImageSharp {

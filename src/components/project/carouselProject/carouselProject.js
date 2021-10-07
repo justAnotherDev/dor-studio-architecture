@@ -29,8 +29,8 @@ const CarouselProject = ({ project, ...props }) => {
         ))}
       </Slider>
       <div className="project-wrapper">
-        <div className={`container ${classes.container}`}>
-          <div className="left-text">
+        <div className={`project-container ${classes.container}`}>
+          <div className="left-text project-data">
             <h4>Project Data</h4>
             {project.project_data.map((item, i) => (
               <div key={i}>
@@ -46,7 +46,7 @@ const CarouselProject = ({ project, ...props }) => {
               </div>
             ))}
           </div>
-          <div className="right-text">
+          <div className="right-text project-intro">
             <h4>{project.project_name}</h4>
             {project.descr.map((item, i) => (
               <p style={{ fontStyle: item?.style ? item.style : undefined }} key={i}>{item.text}</p>

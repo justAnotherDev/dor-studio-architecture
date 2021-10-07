@@ -1,9 +1,25 @@
-.project-container {
-  margin-top: 5rem;
-  margin-bottom: 6.25rem;
-  color: #979797;
+.left-container {
+  width: calc(100% * (2 / 3));
+  padding: 0 1.875rem 0 0.9375rem;
   @media(max-width: 61.9375rem) {
-    margin-top: 3.75rem;
-    margin-bottom: 3.75rem;
+    padding-right: 0.9375rem;
+    margin-bottom: 3.125rem;
+    width: 100%;
+  }
+}
+
+.right-container {
+  width: calc(100% / 3);
+  padding: 0 0.9375rem 0 1.875rem;
+  @media(max-width: 61.9375rem) {
+    padding-left: 0.9375rem;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+}
+
+.mosaic-project.project-container {
+  @media(max-width: 61.9375rem) {
+    flex-direction: column-reverse;
   }
 }

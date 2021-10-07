@@ -152,30 +152,40 @@
       }
     ],
     "carousel": false,
-    "images": [
+    "mosaic": [
       {
-        "src": "../../images/projects/unaweep-workshop/ladderwork.jpeg",
-        "alt": null
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/unaweep-workshop/ladderwork.jpeg",
+            "alt": null
+          }
+        ]
       },
       {
-        "src": "../../images/projects/unaweep-workshop/workshop-with-completed-walls.jpeg",
-        "alt": null
-      },
-      {
-        "src": "../../images/projects/unaweep-workshop/workshop-interior.jpeg",
-        "alt": null
-      },
-      {
-        "src": "../../images/about/building.jpeg",
-        "alt": null
-      },
-      {
-        "src": "../../images/services/the_property.jpeg",
-        "alt": null
-      },
-      {
-        "src": "../../images/projects/unaweep-workshop/aerial-shot.jpeg",
-        "alt": null
+        "columns": 2,
+        "images":[
+          {
+            "src": "../../images/projects/unaweep-workshop/workshop-with-completed-walls.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/unaweep-workshop/workshop-interior.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/about/building.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/services/the_property.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/unaweep-workshop/aerial-shot.jpeg",
+            "alt": null
+          }
+        ]
       }
     ],
     "navigation": {
