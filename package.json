@@ -21,6 +21,8 @@
     "gatsby-transformer-json": "^3.11.0",
     "gatsby-transformer-sharp": "^3.10.0",
     "gsap": "^3.7.1",
+    "isotope-layout": "^3.0.6",
+    "isotope-masonry-horizontal": "^2.0.1",
     "leaflet": "^1.7.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
