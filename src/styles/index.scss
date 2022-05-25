@@ -81,3 +81,56 @@ $white: #fff;
   height: 0;
   width: 0;
 }
+
+/* ---- grid ---- */
+
+.isotope-grid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.isotope-grid {
+  // padding: 0 0.9375rem;
+  margin: 0.9375rem auto auto;
+  @media (min-width: 48rem) {
+    width: 46.875rem;
+  }
+  @media (min-width: 62rem) {
+    width: 60.625rem;
+  }
+  @media (min-width: 75rem) {
+    width: 73.125rem;
+  }
+  width: 100%;
+}
+
+/* clear fix */
+.isotope-grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+/* 5 columns, percentage width */
+.isotope-grid-item,
+.isotope-grid-sizer {
+  @media (min-width: 48rem) {
+    width: 100%;
+  }
+  @media (min-width: 62rem) {
+    width: 50%;
+  }
+  @media (min-width: 75rem) {
+    width: 33%;
+  }
+}
+
+.isotope-grid-item {
+  padding: 0.9375rem;
+}
+
+.isotope-grid-item-overlay {
+  inset: 0.9375rem;
+}

@@ -2,9 +2,10 @@ import React, { useRef, useEffect, useState, useLayoutEffect } from "react"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { makeStyles } from "@material-ui/core"
 import gsap from "gsap"
-import Isotope from "isotope-layout"
+import "../styles/index.scss"
 
 const IndexPage = props => {
   const classes = portfolioStyles(props)
@@ -19,12 +20,7 @@ const IndexPage = props => {
             subheader
             src {
               childImageSharp {
-                gatsbyImageData(
-                  transformOptions: { cropFocus: CENTER }
-                  width: 460
-                  height: 636
-                  placeholder: BLURRED
-                )
+                gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               }
             }
             alt
@@ -36,25 +32,32 @@ const IndexPage = props => {
   `)
 
   // Isotope logic
-  // const isotope = useRef()
+  const isotope = useRef()
   const [filterKey, setFilterKey] = useState("*")
   const filterBoxEl = useRef()
-  // useEffect(() => {
-  //   isotope.current = new Isotope(".filter-container", {
-  //     itemSelector: ".filter-item",
-  //     layoutMode: "masonryHorizontal",
-  //     masontryHorizontal: {
-  //       gutter: 15,
-  //     },
-  //   })
-  //   return () => isotope.current.destroy()
-  // }, [])
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      const Isotope = require("isotope-layout")
+      isotope.current = new Isotope(".isotope-grid", {
+        itemSelector: ".isotope-grid-item",
+        percentPosition: true,
+        masontryHorizontal: {
+          columnWidth: ".isotope-grid-sizer",
+        },
+      })
+    }
+    return () => {
+      if (typeof window !== undefined) isotope.current.destroy()
+    }
+  }, [])
 
-  // useEffect(() => {
-  //   filterKey === "*"
-  //     ? isotope.current.arrange({ filter: "*" })
-  //     : isotope.current.arrange({ filter: `.${filterKey}` })
-  // }, [filterKey])
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      filterKey === "*"
+        ? isotope.current.arrange({ filter: "*" })
+        : isotope.current.arrange({ filter: `.${filterKey}` })
+    }
+  }, [filterKey])
 
   const handleFilterKeyChange = (e, key) => {
     animateFilterBox(e.target.getBoundingClientRect(), true)
@@ -62,6 +65,7 @@ const IndexPage = props => {
     setFilterKey(key)
   }
 
+  // Moving filter box code
   useEffect(() => {
     animateFilterBox(
       document.getElementById("portfolio__all").getBoundingClientRect(),
@@ -70,17 +74,17 @@ const IndexPage = props => {
   }, [])
 
   const animateFilterBox = (boundingBox, animate) => {
-    const { x, y, width, height } = boundingBox
+    const { top, left, width, height } = boundingBox
     const offset = document
-      .getElementById("filter-wrapper")
-      .getBoundingClientRect().bottom
+      .getElementsByTagName("header")[0]
+      .getBoundingClientRect().height
     const tl = gsap.timeline()
     gsap.set(".filter-box", {
       border: "0.125rem solid white",
     })
     tl.to(".filter-box", {
-      x,
-      y: y - offset,
+      top: top - offset,
+      left,
       width,
       height,
       ease: "expo.out",
@@ -96,6 +100,7 @@ const IndexPage = props => {
     window.addEventListener("resize", repositionFilterBox)
     return () => window.removeEventListener("resize", repositionFilterBox)
   }, [])
+  // End moving filter box code
 
   const projectTypes = [
     "All",
@@ -110,11 +115,13 @@ const IndexPage = props => {
     <>
       <Seo title="Portfolio" />
       <div id="filter-wrapper" className={classes.filterWrapper}>
+        <div className="filter-box"></div>
         <ul className={classes.filterList}>
           {projectTypes.map(listItem => {
             if (listItem === "All") {
               return (
                 <li
+                  key="All"
                   className={classes.filterListItem}
                   onClick={e => handleFilterKeyChange(e, "*")}
                 >
@@ -130,6 +137,7 @@ const IndexPage = props => {
             } else {
               return (
                 <li
+                  key={listItem.replace(filterKeyRegex, "")}
                   className={classes.filterListItem}
                   onClick={e =>
                     handleFilterKeyChange(
@@ -145,7 +153,41 @@ const IndexPage = props => {
           })}
         </ul>
       </div>
-      <div className="filter-box"></div>
+      <div className="isotope-grid-wrapper">
+        <div className="isotope-grid">
+          <div className="isotope-grid-sizer"></div>
+          {edges.map((item, i) => (
+            <div
+              className={`isotope-grid-item ${item.node.subheader
+                .split(" ")
+                .map(key => key.replace(filterKeyRegex, ""))
+                .join(" ")}`}
+              key={i}
+              onClick={() => props.route(`/projects/${item.node.link}`)}
+              role="link"
+              onKeyDown={e => {
+                if (e.code === "Enter")
+                  props.route(`/projects/${item.node.link}`)
+              }}
+            >
+              <GatsbyImage
+                image={item.node.src.childImageSharp.gatsbyImageData}
+                alt={item.node.alt}
+              />
+              <div
+                className={`overlay isotope-grid-item-overlay ${classes.overlay}`}
+              >
+                <div className="overlay-inner">
+                  <div className="overlay-text">
+                    <h4 className="text-header">{item.node.header}</h4>
+                    <h6 className="text-subheader">{item.node.subheader}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   )
 }
@@ -158,6 +200,7 @@ const portfolioStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "center",
     minHeight: "7.5rem",
+    position: "relative",
   },
   filterList: {
     padding: "0 1.875rem",
@@ -189,6 +232,10 @@ const portfolioStyles = makeStyles(theme => ({
     "&:hover": {
       cursor: "pointer",
     },
+  },
+  overlay: {
+    backgroundColor: `${theme.palette.primary.main}CC`,
+    inset: 0,
   },
 }))
 

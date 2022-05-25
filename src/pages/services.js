@@ -28,10 +28,7 @@ const IndexPage = ({ route, ...props }) => {
           alt
           src {
             childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-              )
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
         }
@@ -39,20 +36,20 @@ const IndexPage = ({ route, ...props }) => {
     }
   `)
   const servicesData = data.servicesJson
-  
+
   return (
     <>
       <Seo title="Services" />
       <Subheader subheader={servicesData.subheader} />
       <div className={classes.grid}>
         {servicesData.info.map((item, i) => (
-          <React.Fragment  key={i}>
+          <React.Fragment key={i}>
             <div className={classes.gridItem}>
               <div className={classes.iconContainer}>
                 <i className={item.icon} aria-hidden="true" />
               </div>
               <div className={classes.textContanier}>
-                <h5 style={{ textAlign: 'center' }}>{item.header}</h5>
+                <h5 style={{ textAlign: "center" }}>{item.header}</h5>
                 <p>{item.subheader}</p>
                 <ul>
                   {item.points.map((point, i) => (
@@ -77,7 +74,10 @@ const IndexPage = ({ route, ...props }) => {
                 )}
               </div>
             </div>
-            <GatsbyImage image={servicesData.images[i].src.childImageSharp.gatsbyImageData} alt={servicesData.images[i].alt} />
+            <GatsbyImage
+              image={servicesData.images[i].src.childImageSharp.gatsbyImageData}
+              alt={servicesData.images[i].alt}
+            />
           </React.Fragment>
         ))}
       </div>
@@ -89,17 +89,17 @@ const servicesStyles = makeStyles(theme => ({
   grid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
-    gridAutoFlow: 'column',
-    gridTemplateRows: 'repeat(2, auto)',
+    gridAutoFlow: "column",
+    gridTemplateRows: "repeat(2, auto)",
     gap: "1.875rem",
     width: "100%",
     textTransform: "none",
-    marginBottom: '2.1875rem',
-    '@media(max-width: 47.9375rem)': {
-      gridTemplateColumns: 'none',
-      gridTemplateRows: 'none',
-      gridAutoFlow: 'unset'
-    }
+    marginBottom: "2.1875rem",
+    "@media(max-width: 47.9375rem)": {
+      gridTemplateColumns: "none",
+      gridTemplateRows: "none",
+      gridAutoFlow: "unset",
+    },
   },
   gridItem: {
     padding: "1.875rem",
@@ -114,9 +114,9 @@ const servicesStyles = makeStyles(theme => ({
     lineHeight: "3.125rem",
   },
   textContanier: {
-    width: '100%',
-    padding: '0 0.625rem'
-  }
+    width: "100%",
+    padding: "0 0.625rem",
+  },
 }))
 
 IndexPage.Layout = Layout
