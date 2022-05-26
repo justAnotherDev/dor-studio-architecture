@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { makeStyles } from "@material-ui/core"
 import gsap from "gsap"
+import "isotope-masonry-horizontal"
 import "../styles/index.scss"
 
 const IndexPage = props => {
@@ -38,11 +39,12 @@ const IndexPage = props => {
   useEffect(() => {
     if (typeof window !== undefined) {
       const Isotope = require("isotope-layout")
-      isotope.current = new Isotope(".isotope-grid", {
-        itemSelector: ".isotope-grid-item",
-        percentPosition: true,
+      isotope.current = new Isotope(".grid", {
+        layoutMode: "masonryHorizontal",
+        itemSelector: ".grid-item",
         masontryHorizontal: {
-          columnWidth: ".isotope-grid-sizer",
+          rowHeight: 100,
+          gutter: 20,
         },
       })
     }
@@ -60,42 +62,46 @@ const IndexPage = props => {
   }, [filterKey])
 
   const handleFilterKeyChange = (e, key) => {
-    animateFilterBox(e.target.getBoundingClientRect(), true)
+    animateFilterBox(e.target, true)
     filterBoxEl.current = e.target
     setFilterKey(key)
   }
 
   // Moving filter box code
   useEffect(() => {
-    animateFilterBox(
-      document.getElementById("portfolio__all").getBoundingClientRect(),
-      false
+    const animateAfterTransition = setTimeout(
+      () => animateFilterBox(document.getElementById("portfolio__all"), false),
+      350
     )
+
+    return () => {
+      clearTimeout(animateAfterTransition)
+      gsap.set(".filter-box", { display: "none" })
+    }
   }, [])
 
-  const animateFilterBox = (boundingBox, animate) => {
-    const { top, left, width, height } = boundingBox
-    const offset = document
-      .getElementsByTagName("header")[0]
-      .getBoundingClientRect().height
-    const tl = gsap.timeline()
-    gsap.set(".filter-box", {
-      border: "0.125rem solid white",
-    })
-    tl.to(".filter-box", {
-      top: top - offset,
-      left,
-      width,
-      height,
-      ease: "expo.out",
-      duration: animate ? 0.5 : 0,
-    })
+  const animateFilterBox = (element, animate) => {
+    if (typeof window !== undefined) {
+      const { width, height, x, y } = element.getBoundingClientRect()
+      const tl = gsap.timeline()
+      gsap.set(".filter-box", {
+        display: "block",
+        border: "0.125rem solid white",
+      })
+      tl.to(".filter-box", {
+        x,
+        y: y + window.scrollY,
+        width,
+        height,
+        ease: "expo.out",
+        duration: animate ? 0.5 : 0,
+      })
+    }
   }
 
   useLayoutEffect(() => {
     function repositionFilterBox() {
-      if (filterBoxEl.current)
-        animateFilterBox(filterBoxEl.current.getBoundingClientRect(), false)
+      if (filterBoxEl.current) animateFilterBox(filterBoxEl.current, false)
     }
     window.addEventListener("resize", repositionFilterBox)
     return () => window.removeEventListener("resize", repositionFilterBox)
@@ -115,7 +121,6 @@ const IndexPage = props => {
     <>
       <Seo title="Portfolio" />
       <div id="filter-wrapper" className={classes.filterWrapper}>
-        <div className="filter-box"></div>
         <ul className={classes.filterList}>
           {projectTypes.map(listItem => {
             if (listItem === "All") {
@@ -153,12 +158,29 @@ const IndexPage = props => {
           })}
         </ul>
       </div>
-      <div className="isotope-grid-wrapper">
+      <div class="grid">
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2 grid-item--height2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+      </div>
+      {/* <div className="isotope-grid-wrapper">
         <div className="isotope-grid">
           <div className="isotope-grid-sizer"></div>
           {edges.map((item, i) => (
             <div
-              className={`isotope-grid-item ${item.node.subheader
+              className={`isotope-grid-item height${Math.floor(
+                Math.random() * (3 - 1) + 1
+              )} ${item.node.subheader
                 .split(" ")
                 .map(key => key.replace(filterKeyRegex, ""))
                 .join(" ")}`}
@@ -187,7 +209,7 @@ const IndexPage = props => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

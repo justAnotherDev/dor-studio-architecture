@@ -77,9 +77,11 @@ $white: #fff;
 }
 
 .filter-box {
+  display: none;
   position: absolute;
   height: 0;
   width: 0;
+  pointer-events: none;
 }
 
 /* ---- grid ---- */
@@ -114,21 +116,61 @@ $white: #fff;
 /* ---- .element-item ---- */
 
 /* 5 columns, percentage width */
-.isotope-grid-item,
-.isotope-grid-sizer {
-  @media (min-width: 48rem) {
-    width: 100%;
-  }
-  @media (min-width: 62rem) {
-    width: 50%;
-  }
-  @media (min-width: 75rem) {
-    width: 33%;
-  }
+// .isotope-grid-item,
+// .isotope-grid-sizer {
+//   @media (min-width: 48rem) {
+//     width: 100%;
+//   }
+//   @media (min-width: 62rem) {
+//     width: 50%;
+//   }
+//   @media (min-width: 75rem) {
+//     width: 33%;
+//   }
+// }
+
+// .isotope-grid-item {
+//   padding: 0.9375rem;
+// }
+
+// .isotope-grid-item.height1 {
+//   height: 33vh;
+// }
+// .isotope-grid-item.height2 {
+//   height: 66vh;
+// }
+
+/* ---- grid ---- */
+
+.grid {
+  background: #ddd;
+  height: 75%; /* inherit height from body */
 }
 
-.isotope-grid-item {
-  padding: 0.9375rem;
+/* clear fix */
+.grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px; /* horizontal gutter */
+  background: #0d8;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.grid-item--width2 {
+  width: 220px;
+}
+.grid-item--height2 {
+  height: 220px;
 }
 
 .isotope-grid-item-overlay {
