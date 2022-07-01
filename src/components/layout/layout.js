@@ -17,7 +17,7 @@ import ToTop from "../totop/totop"
 
 const Layout = props => {
   const [dropDown, setDropDown] = useState(false)
-
+  
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -50,12 +50,11 @@ const Layout = props => {
       />
       <div className="main-wrapper">
         <Framer {...props}>
-          <main style={{ height: "100%" }}>{childrenWithProps}</main>
+          <main style={{ height: '100%' }}>{childrenWithProps}</main>
         </Framer>
       </div>
       <Footer route={route} />
       <ToTop />
-      <div className="filter-box"></div>
     </div>
   )
 }
