@@ -282,5 +282,95 @@
         "link": "carrollton-river-center/"
       }
     }
+  },
+  {
+    "slug": "disaster-relief-shelter",
+    "project_name": "Disaster Relief Shelter",
+    "descr": [
+      {
+        "text": "Studio reCOVER endeavored to design and build a prototype disaster relief shelter that is both socially and environmentally conscious. The structure is a modular kit of parts requiring few tools for assembly. The roof is designed to shade from the sun & utilize prevailing winds to reduce solar heat gain. Clerestory windows are installed in certain wall panels to create air flow through the interior space."
+      }, 
+      {
+        "text": "The wall system is based on a flexible plug and play concept which employs a standard 4×8 wall panel as well as programmed panels designated for amenities (i.e. storage, sleeping, water, electricity). As part of a four-person team, I helped design the programmed panels and subsequently built a storage and a window panel for the full scale model of the shelter."
+      }
+    ],
+    "project_data": [
+      {
+        "header": "Location",
+        "descr": "Pearlington, MS (conceptual)\nCharlottesville, VA (partial build)"
+      },
+      {
+        "header": "Site Context",
+        "descr": "The Gulf Coast is humid, hot, and prone to natural disaster."
+      },
+      {
+        "header": "Date",
+        "descr": "2009"
+      },
+      {
+        "header": "Project Type",
+        "descr": "Resilient/Sustainable\nResidential"
+      }
+    ],
+    "carousel": false,
+    "mosaic": [
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/disaster-relief-shelter/Storyboard_CLADDING.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/disaster-relief-shelter/A301-Building-Sections-24x36-1-e1547799382420.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/disaster-relief-shelter/DSCN0314.jpeg",
+            "alt": null
+          }
+        ]
+      },
+      {
+        "columns": 3,
+        "images":[
+          {
+            "src": "../../images/projects/disaster-relief-shelter/IMG_1279-e1547798844676.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/disaster-relief-shelter/IMG_1299-e1547798825663.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/disaster-relief-shelter/IMG_1331-e1547798800517.jpeg",
+            "alt": null
+          }
+        ]
+      },
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/disaster-relief-shelter/Program-Render_2-e1547798949587.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/disaster-relief-shelter/Program-Storyboard_2-4-e1547799036277.jpeg",
+            "alt": null
+          }
+        ]
+      }
+    ],
+    "navigation": {
+      "prev": {
+        "projectName": "Carrollton River Center",
+        "link": "carrollton-river-center/"
+      },
+      "next": {
+        "projectName": "New Orleans Dance Academy",
+        "link": "new-orleans-dance-academy/"
+      }
+    }
   }
 ]
