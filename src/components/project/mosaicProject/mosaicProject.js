@@ -28,11 +28,16 @@ const MosaicProject = ({ project }) => {
         <div className="right-container">
           <div className="project-intro">
             <h4>{project.project_name}</h4>
-            {project.descr.map((item, i) => (
-              <p style={{ fontStyle: item?.style ? item.style : undefined }} key={i}>
-                {item.text}
-              </p>
-            ))}
+            {project.descr.map((item, i) => {
+              return (
+                <div style={{ margin: "0.625rem 0" }}>
+                  {item.text.split('\n').map(newLineText => (
+                    <div style={{ fontStyle: item.style ? item.style : undefined, whiteSpace:"pre-wrap" }}>
+                      {newLineText}
+                    </div>
+                  ))}
+                </div>
+            )})}
           </div>
           <div className="project-data" style={{ marginTop: '1.875rem', padding: 0 }}>
             <h4>Project Data</h4>

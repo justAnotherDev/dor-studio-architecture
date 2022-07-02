@@ -198,5 +198,89 @@
         "link": "hollygrove-greenline-master-plan/"
       }
     }
+  },
+  {
+    "slug": "hollygrove-greenline-master-plan",
+    "project_name": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
+    "descr": [
+      {
+        "text": "The Greenline is a community-based initiative that is being lead by the Carrollton Hollygrove CDC with the support of Trinity Christian Community Center, Longue Vue House and Gardens, and the Tulane City Center. The project sites, owned by the Sewerage and Water Board and formerly occupied by a rail line, were made available to the CDC for storm water management, wetland restoration education, and community activities, such as urban agriculture and playspace."
+      }, 
+      {
+        "text": "Greenline Goals:\n– Re-activate unused infrastructural space within the Hollygrove neighborhood\n– Educate the community on stormwater management strategies\n– Provide healthy, safe, enjoyable public outdoor spaces\n– Provide demonstration gardens for urban farming initiatives"
+      },
+      {
+        "text": "Five rain gardens were installed on the properties Hollygrove residents with flooding issues. The collaborative efforts of Tulane City Center, Carrollton Hollygrove CDC, Dana Brown & Associates, and Engineers without Borders, produced a pilot project for the education and implementation of stormwater management best practices in the residential neighborhood. The gardens are comprised of 100 native species and handle at least 10 of each property’s runoff in a 2-year storm."
+      },
+      {
+        "text": "Hollygrove residents were invited to a workshop about stormwater management at the scale of their city, neighborhood, and homes. Some topics covered were: why New Orleans is sinking, why mechanical drainage and pump systems aren’t enough, and what soft engineering infrastructure could be implemented to mitigate drainage issues at various scales. Residents also learned how to use simple site surveying techniques at home."
+      }
+    ],
+    "project_data": [
+      {
+        "header": "Location",
+        "descr": "Hollygrove Neighborhood, New Orleans, LA"
+      },
+      {
+        "header": "Site Context",
+        "descr": "The Hollygrove Greenline was formerly a railroad track that cut diagonally through blocks in the neighborhood. All of the tracks have been removed and the land has been planted with grass.\nMost properties in the Hollygrove Neighbohood flood during even 1- and 2-year storms, creating a great need for storm water management education and implementation."
+      },
+      {
+        "header": "Date",
+        "descr": "2013"
+      },
+      {
+        "header": "Project Type",
+        "descr": "Public/Civic\nResilient/Sustainable"
+      }
+    ],
+    "carousel": false,
+    "mosaic": [
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/hollygrove-greenline-master-plan/center-persp_1031_yellowcanopy-01.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/hollygrove-greenline-master-plan/int-tent-persp_1031_yellowcanopy1.jpeg",
+            "alt": null
+          }
+        ]
+      },
+      {
+        "columns": 2,
+        "images":[
+          {
+            "src": "../../images/projects/hollygrove-greenline-master-plan/IMG_2125.jpeg",
+            "alt": null
+          },
+          {
+            "src": "../../images/projects/hollygrove-greenline-master-plan/MJA_0547.jpeg",
+            "alt": null
+          }
+        ]
+      },
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/hollygrove-greenline-master-plan/IMG_0001.jpeg",
+            "alt": null
+          }
+        ]
+      }
+    ],
+    "navigation": {
+      "prev": {
+        "projectName": "Unaweep Workshop",
+        "link": "unaweep-workshop/"
+      },
+      "next": {
+        "projectName": "Carrollton River Center",
+        "link": "carrollton-river-center/"
+      }
+    }
   }
 ]
