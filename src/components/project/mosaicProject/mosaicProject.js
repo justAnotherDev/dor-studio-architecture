@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import "./mosaicProject.scss"
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { makeStyles } from "@material-ui/core";
+import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavigator";
 
-const MosaicProject = ({ project }) => {
-
+const MosaicProject = ({ project, navigation }) => {
+  const [showModal, setShowModal] = useState(false)
   return (
     <div className="project-wrapper">
       <div className="project-container mosaic-project">
@@ -57,6 +58,7 @@ const MosaicProject = ({ project }) => {
           </div>
         </div>
       </div>
+      {showModal && <MosaicProjectNavigator />}
     </div>
   )
 }

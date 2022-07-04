@@ -14,7 +14,7 @@ const IndexPage = ({ pageContext: { data } }) => {
       {carousel ?
           <CarouselProject project={project} />
         :
-          <MosaicProject project={project} />
+          <MosaicProject project={project} navigation={navigation} />
       }
       <ProjectNavigator navigation={navigation} />
     </>
