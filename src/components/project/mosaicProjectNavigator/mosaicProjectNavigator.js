@@ -5,7 +5,7 @@ import CarouselArrow from '../../carouselArrow';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ProjectNavigator from '../projectNavigator/projectNavigator';
  
-const MosaicProjectNavigator = ({ project, navigation }) => {
+const MosaicProjectNavigator = ({ project, navigation, modalKey }) => {
   const settings = {
     dots: false,
     fade: false,
@@ -16,7 +16,7 @@ const MosaicProjectNavigator = ({ project, navigation }) => {
     prevArrow: <CarouselArrow prevDirection={true} shiftAmount="1.875rem" />,
     nextArrow: <CarouselArrow prevDirection={false} shiftAmount="1.875rem" />,
     autoplay: false,
-    initialSlide: 4
+    initialSlide: modalKey + 1
   };
   const imageArray = project.mosaic.reduce((a,e) => [...a, ...e.images], [])
   console.log(imageArray)

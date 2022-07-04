@@ -5,7 +5,8 @@ import { makeStyles } from "@material-ui/core";
 import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavigator";
 
 const MosaicProject = ({ project, navigation }) => {
-  const [showModal, setShowModal] = useState(false)
+  const [modalKey, setModalKey] = useState(null)
+
   return (
     <div className="project-wrapper">
       <div className="project-container mosaic-project">
@@ -19,7 +20,8 @@ const MosaicProject = ({ project, navigation }) => {
                     key={i} 
                     style={{ width: '100%', height: '100%' }} 
                     image={image.src.childrenImageSharp[0].gatsbyImageData} 
-                    alt={image?.alt ? image.alt : "alt"} 
+                    alt={image?.alt ? image.alt : "alt"}
+                    onClick={() => setModalKey(i)}
                   />
                 ))}
               </div>
@@ -58,7 +60,7 @@ const MosaicProject = ({ project, navigation }) => {
           </div>
         </div>
       </div>
-      {showModal && <MosaicProjectNavigator />}
+      {modalKey !== null && <MosaicProjectNavigator project={project} navigation={navigation} modalKey={modalKey} />}
     </div>
   )
 }
@@ -69,6 +71,7 @@ const gridStyles = makeStyles({
     marginBottom: '0.9375rem',
     gap: '0.9375rem',
     gridTemplateColumns: item => '1fr '.repeat(item.columns).trimEnd(),
+    '&:hover': { cursor: "pointer" },
     '@media(max-width: 61.9375rem)': {
       gridTemplateColumns: '1fr !important'
     }
