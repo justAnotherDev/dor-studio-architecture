@@ -6,7 +6,7 @@ import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavig
 
 const MosaicProject = ({ project, navigation }) => {
   const [modalKey, setModalKey] = useState(null)
-
+  const resetModalKey = () => setModalKey(null)
   return (
     <div className="project-wrapper">
       <div className="project-container mosaic-project">
@@ -68,7 +68,16 @@ const MosaicProject = ({ project, navigation }) => {
           </div>
         </div>
       </div>
-      {modalKey !== null && <MosaicProjectNavigator project={project} navigation={navigation} modalKey={modalKey} />}
+      {modalKey !== null && 
+        (
+          <MosaicProjectNavigator 
+            project={project} 
+            navigation={navigation} 
+            modalKey={modalKey} 
+            resetModalKey={resetModalKey} 
+          />
+        )
+      }
     </div>
   )
 }

@@ -5,8 +5,7 @@ import CarouselArrow from '../../carouselArrow';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ProjectNavigator from '../projectNavigator/projectNavigator';
  
-const MosaicProjectNavigator = ({ project, navigation, modalKey }) => {
-  console.log(modalKey)
+const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }) => {
   const settings = {
     dots: false,
     fade: false,
@@ -19,10 +18,16 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey }) => {
     autoplay: false,
     initialSlide: modalKey
   };
-  const imageArray = project.mosaic.reduce((a,e) => [...a, ...e.images], [])
-  console.log(imageArray)
+
   return (
-    <div className="mpn-wrapper">
+    <div className="mpn__wrapper">
+      <div className="mpn__header">
+        <div className="mpn__slide-number"></div>
+        <div className="mpn__title"></div>
+        <div className="mpn__close-modal">
+          <div className="mpn__close-box" onClick={() => resetModalKey()}></div>
+        </div>
+      </div>
       <Slider {...settings}>
         {project.mosaic.reduce((a, e) => [...a, ...e.images], []).map((image, i) => (
           <div className="image-wrapper" key={i}>
