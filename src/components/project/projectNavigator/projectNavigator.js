@@ -8,7 +8,7 @@ const ProjectNavigator = ({ navigation, ...props }) => {
   return (
     <div className={`${classes.projectNav} project-nav`}>
       <div className="prev-project">
-        <Link to={`/${navigation.prev.link}`}>
+        <Link to={`/projects/${navigation.prev.link}`}>
           <h4 className={classes.text}>{navigation.prev.projectName}</h4>
           <span className={classes.extraLightText}>Previous Project</span>
         </Link>
@@ -19,7 +19,7 @@ const ProjectNavigator = ({ navigation, ...props }) => {
         </Link>
       </div>
       <div className="next-project">
-        <Link to={`/${navigation.next.link}`}>
+        <Link to={`/projects/${navigation.next.link}`}>
           <h4 className={classes.text}>{navigation.next.projectName}</h4>
           <span className={classes.extraLightText}>Next Project</span>
         </Link>

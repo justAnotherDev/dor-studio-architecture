@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./mosaicProject.scss"
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { makeStyles } from "@material-ui/core";
@@ -11,17 +11,25 @@ const MosaicProject = ({ project, navigation }) => {
     <div className="project-wrapper">
       <div className="project-container mosaic-project">
         <div className="left-container">
-          {project.mosaic.map((item, i) => {
+          {project.mosaic.map((item, mosaicIndex) => {
             const gridClass = gridStyles(item);
             return (
-              <div key={i} className={gridClass.grid}>
+              <div key={mosaicIndex} className={gridClass.grid}>
                 {item.images.map((image, i) => (
                   <GatsbyImage 
                     key={i} 
                     style={{ width: '100%', height: '100%' }} 
                     image={image.src.childrenImageSharp[0].gatsbyImageData} 
                     alt={image?.alt ? image.alt : "alt"}
-                    onClick={() => setModalKey(i)}
+                    onClick={() => {
+                      setModalKey(
+                        (mosaicIndex > 0
+                          ? project.mosaic
+                              .slice(0, mosaicIndex)
+                              .reduce((a, e) => a + e.images.length, 0)
+                          : 0) + i
+                      )
+                    }}
                   />
                 ))}
               </div>
