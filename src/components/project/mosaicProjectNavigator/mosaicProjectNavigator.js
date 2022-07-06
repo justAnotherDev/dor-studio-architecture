@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./mosaicProjectNavigator.scss"
 import Slider from "react-slick"
 import CarouselArrow from '../../carouselArrow';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ProjectNavigator from '../projectNavigator/projectNavigator';
+import { makeStyles } from '@material-ui/core';
  
-const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }) => {
+const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey, ...props }) => {
+  const classes = mpnStyles(props)
+  const [currentSlide, setCurrentSlide] = useState(modalKey + 1)
+  const [totalSlides,] = useState(project.mosaic.reduce((s,e) => s + e.images.length, 0))
+  
   const settings = {
     dots: false,
     fade: false,
@@ -16,13 +21,19 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }
     prevArrow: <CarouselArrow prevDirection={true} shiftAmount="1.875rem" />,
     nextArrow: <CarouselArrow prevDirection={false} shiftAmount="1.875rem" />,
     autoplay: false,
-    initialSlide: modalKey
+    initialSlide: modalKey,
+    beforeChange: (oi, ni) => setCurrentSlide(ni + 1)
   };
 
   return (
     <div className="mpn__wrapper">
       <div className="mpn__header">
-        <div className="mpn__slide-number"></div>
+        <div className="mpn__slide-numbers">
+          <div className="mpn__slide-fraction">
+            <span className={`${classes.extraLightText} mpn__slide-current`}>{`${currentSlide < 10 ? "0":""}${currentSlide}`}</span>
+            <span className="mpn__slide-total">{`${totalSlides < 10 ? "0":""}${totalSlides}`}</span>
+          </div>
+        </div>
         <div className="mpn__title"></div>
         <div className="mpn__close-modal">
           <div className="mpn__close-box" onClick={() => resetModalKey()}></div>
@@ -39,5 +50,11 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }
     </div>
   );
 }
- 
+
+const mpnStyles = makeStyles(theme => ({
+  extraLightText: {
+    color: theme.palette.extraLightText
+  }
+}))
+
 export default MosaicProjectNavigator

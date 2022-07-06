@@ -26,7 +26,7 @@ const MosaicProject = ({ project, navigation }) => {
                         (mosaicIndex > 0
                           ? project.mosaic
                               .slice(0, mosaicIndex)
-                              .reduce((a, e) => a + e.images.length, 0)
+                              .reduce((s, e) => s + e.images.length, 0)
                           : 0) + i
                       )
                     }}
