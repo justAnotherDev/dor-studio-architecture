@@ -11,6 +11,10 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey, 
   const [currentSlide, setCurrentSlide] = useState(modalKey + 1)
   const [totalSlides,] = useState(project.mosaic.reduce((s,e) => s + e.images.length, 0))
   
+  const returnProjectValue = (key) => {
+    return project.project_data.filter(({ header }) => header === key).shift().descr
+  }
+  
   const settings = {
     dots: false,
     fade: false,
@@ -34,7 +38,15 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey, 
             <span className="mpn__slide-total">{`${totalSlides < 10 ? "0":""}${totalSlides}`}</span>
           </div>
         </div>
-        <div className="mpn__title"></div>
+        <div className="mpn__title">
+          <h4>{project.project_name}</h4>
+          <p 
+            style={{ textTransform: "none" }} 
+            className={classes.extraLightText}
+          >
+            {`${returnProjectValue("Project Type").replace(/\n/g," ")} - ${returnProjectValue("Date")}`}
+          </p>
+        </div>
         <div className="mpn__close-modal">
           <div className="mpn__close-box" onClick={() => resetModalKey()}></div>
         </div>

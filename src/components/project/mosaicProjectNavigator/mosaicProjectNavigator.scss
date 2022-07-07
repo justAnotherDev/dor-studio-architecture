@@ -15,17 +15,21 @@
   display: flex;
 }
 
+.mpn__title, .mpn__slide-numbers, .mpn__close-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mpn__title {
   width: 80%;
   height: 100%;
+  flex-direction: column;
 }
 
 .mpn__slide-numbers, .mpn__close-modal {
   width: 10%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .mpn__close-box, .mpn__slide-fraction {
