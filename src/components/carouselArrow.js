@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import theme from '../../plugins/custom-mui-theme/theme';
  
 const CarouselArrow = ({ prevDirection, shiftAmount, className, onClick }) => {
+  const matchingKeyCode = prevDirection ? 37 : 39
+  useEffect(() => {
+    const handleKeyUp = (event) => {
+      if (event.keyCode === matchingKeyCode) {
+        onClick()
+      }
+    }
+    document.addEventListener("keyup", handleKeyUp)
+    return () => document.removeEventListener("keyup", handleKeyUp)
+  }, [])
   const styles = {
     iconContainer: {
       position: 'absolute',

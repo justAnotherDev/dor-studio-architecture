@@ -39,11 +39,11 @@ const MosaicProject = ({ project, navigation }) => {
         <div className="right-container">
           <div className="project-intro">
             <h4>{project.project_name}</h4>
-            {project.descr.map((item, i) => {
+            {project.descr.map((item, descrIndex) => {
               return (
-                <div style={{ margin: "0.625rem 0" }}>
-                  {item.text.split('\n').map(newLineText => (
-                    <div style={{ fontStyle: item.style ? item.style : undefined, whiteSpace:"pre-wrap" }}>
+                <div key={descrIndex} style={{ margin: "0.625rem 0" }}>
+                  {item.text.split('\n').map((newLineText, itemIndex) => (
+                    <div key={itemIndex} style={{ fontStyle: item.style ? item.style : undefined, whiteSpace:"pre-wrap" }}>
                       {newLineText}
                     </div>
                   ))}
