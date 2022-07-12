@@ -50,7 +50,6 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                       avifOptions: {lossless: true, quality: 100}
                       pngOptions: {quality: 100}
                       placeholder: BLURRED
-                      breakpoints: 0
                     )
                   }
                 }
@@ -66,7 +65,6 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                     avifOptions: {lossless: true, quality: 100}
                     pngOptions: {quality: 100}
                     placeholder: BLURRED
-                    breakpoints: 0
                   )
                 }
               }
