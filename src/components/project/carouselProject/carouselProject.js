@@ -1,12 +1,28 @@
-import { makeStyles } from '@material-ui/core';
+import { styled } from '@mui/material/styles';
 import React from 'react'
 import Slider from "react-slick"
 import CarouselArrow from '../../carouselArrow';
 import './carouselProject.scss'
 import { GatsbyImage } from 'gatsby-plugin-image';
- 
-const CarouselProject = ({ project, ...props }) => {
-  const classes = carouselProjectStyles(props);
+
+const PREFIX = 'CarouselProject';
+
+const classes = {
+  container: `${PREFIX}-container`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.container}`]: {
+    color: theme.palette.lightText
+  }
+}));
+
+const CarouselProject = ({ project }) => {
+
   const settings = {
     dots: false,
     fade: true,
@@ -20,7 +36,7 @@ const CarouselProject = ({ project, ...props }) => {
     autoplaySpeed: 10000
   };
   return (
-    <div className="carousel-project-wrapper">
+    <Root className="carousel-project-wrapper">
       <Slider {...settings}>
         {project.images.map((image, i) => (
           <div className="image-wrapper" key={i}>
@@ -54,14 +70,8 @@ const CarouselProject = ({ project, ...props }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Root>
   );
 }
 
-const carouselProjectStyles = makeStyles(theme => ({
-  container: {
-    color: theme.palette.lightText
-  }
-}))
- 
 export default CarouselProject

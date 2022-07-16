@@ -1,9 +1,26 @@
-import { makeStyles } from "@material-ui/core"
+import { styled } from '@mui/material/styles';
 import React, { useEffect, useRef, useState } from "react"
 import "./totop.scss"
 
-const ToTop = props => {
-  const classes = toTopStyles(props)
+const PREFIX = 'ToTop';
+
+const classes = {
+  iconColor: `${PREFIX}-iconColor`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.iconColor}`]: {
+    color: theme.palette.icon,
+  }
+}));
+
+const ToTop = () => {
+
   const [showArrow, setShowArrow] = useState(false)
   const toTopRef = useRef(null)
   const intersectionDivRef = useRef(null)
@@ -34,7 +51,7 @@ const ToTop = props => {
   }
 
   return (
-    <>
+    <Root>
       <div
         onClick={() => scrollToTop()}
         className={`totop ${classes.iconColor} ${showArrow && "totop-show"}`}
@@ -43,14 +60,8 @@ const ToTop = props => {
         <i className="fa fa-angle-up" />
       </div>
       <div ref={intersectionDivRef} id="intersection-div" />
-    </>
-  )
+    </Root>
+  );
 }
-
-const toTopStyles = makeStyles(theme => ({
-  iconColor: {
-    color: theme.palette.icon,
-  },
-}))
 
 export default ToTop

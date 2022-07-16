@@ -1,9 +1,39 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core"
+import { styled } from '@mui/material/styles';
 import "./footer.scss"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Footer = ({ route, ...props }) => {
+const PREFIX = 'Footer';
+
+const classes = {
+  footer: `${PREFIX}-footer`,
+  footerItem: `${PREFIX}-footerItem`
+};
+
+const Root = styled('footer')((
+  {
+    theme
+  }
+) => ({
+  width: "100%",
+  background: theme.palette.footer.main,
+  padding: "1.875rem 0.9375rem",
+  display: "flex",
+  '@media(max-width:47.9375rem)': {
+    flexDirection: 'column',
+    padding: '0.9375rem 0'
+  },
+  [`& .${classes.footerItem}`]: {
+    padding: "0 0.9375rem 0 1.25rem",
+    width: "25%",
+    '@media(max-width:47.9375rem)': {
+      marginBottom: '1.25rem',
+      width: '100%'
+    }
+  }
+}));
+
+const Footer = ({ route }) => {
   const footerData = useStaticQuery(graphql`
     {
       allFooterJson {
@@ -20,9 +50,9 @@ const Footer = ({ route, ...props }) => {
       }
     }
   `)
-  const classes = footerStyles(props)
+
   return (
-    <footer className={classes.footer}>
+    <Root>
       {footerData.allFooterJson.edges.map(({ node }) => (
         <div key={node.id} className={classes.footerItem}>
           <p>
@@ -73,29 +103,8 @@ const Footer = ({ route, ...props }) => {
           </span>
         </p>
       </div>
-    </footer>
-  )
+    </Root>
+  );
 }
-
-const footerStyles = makeStyles(theme => ({
-  footer: {
-    width: "100%",
-    background: theme.palette.footer.main,
-    padding: "1.875rem 0.9375rem",
-    display: "flex",
-    '@media(max-width:47.9375rem)': {
-      flexDirection: 'column',
-      padding: '0.9375rem 0'
-    }
-  },
-  footerItem: {
-    padding: "0 0.9375rem 0 1.25rem",
-    width: "25%",
-    '@media(max-width:47.9375rem)': {
-      marginBottom: '1.25rem',
-      width: '100%'
-    }
-  }
-}))
 
 export default Footer

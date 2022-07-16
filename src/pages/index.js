@@ -1,15 +1,32 @@
 import * as React from "react"
+import { styled } from '@mui/material/styles';
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick"
 import { GatsbyImage } from "gatsby-plugin-image"
 import CarouselArrow from "../components/carouselArrow"
-import { makeStyles } from "@material-ui/core"
 import '../styles/index.scss'
 
+const PREFIX = 'IndexPage';
+
+const classes = {
+  overlay: `${PREFIX}-overlay`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.overlay}`]: {
+    backgroundColor: `${theme.palette.primary.main}CC`,
+  }
+}));
+
 const IndexPage = props => {
-  const classes = homeStyles(props)
+
   const data = useStaticQuery(graphql`
     {
       allHomeJson {
@@ -65,7 +82,7 @@ const IndexPage = props => {
   const homeData = data.allHomeJson.edges
   
   return (
-    <>
+    <Root>
       <Seo title="" />
       <Slider style={{ margin: '0.5rem 0' }} {...settings}>
         {homeData.map((item, i) => (
@@ -91,15 +108,9 @@ const IndexPage = props => {
           )
         )}
       </Slider>
-    </>
-  )
+    </Root>
+  );
 }
-
-const homeStyles = makeStyles(theme => ({
-  overlay: {
-    backgroundColor: `${theme.palette.primary.main}CC`,
-  }
-}))
 
 IndexPage.Layout = Layout
 export default IndexPage

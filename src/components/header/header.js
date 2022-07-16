@@ -1,13 +1,132 @@
 import React, { useEffect } from "react"
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { AppBar, Collapse, makeStyles } from "@material-ui/core"
+import { AppBar, Collapse } from "@mui/material";
 import Logo from "../../../assets/DOR-Studio-logo.svg"
 import "./header.scss"
 import gsap from "gsap"
 
-const Header = ({ siteTitle, pathname, dropDown, setDropDown, route, ...props }) => {
-  const classes = headerStyles(props)
+const PREFIX = 'Header';
+
+const classes = {
+  appbarwrapper: `${PREFIX}-appbarwrapper`,
+  link: `${PREFIX}-link`,
+  currentLink: `${PREFIX}-currentLink`,
+  menuwrapper: `${PREFIX}-menuwrapper`,
+  menu: `${PREFIX}-menu`,
+  hamburgerwrapper: `${PREFIX}-hamburgerwrapper`,
+  linkContainer: `${PREFIX}-linkContainer`,
+  menuLink: `${PREFIX}-menuLink`
+};
+
+const StyledAppBar = styled(AppBar)((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.appbarwrapper}`]: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "#fff",
+    '@media(max-width: 64.0625rem)': {
+      display: 'none'
+    }
+  },
+
+  [`& .${classes.link}`]: {
+    fontWeight: 700,
+    fontSize: "0.875rem",
+    lineHeight: "7.5rem",
+    transition: "all 0.4s ease-in-out",
+    position: "relative",
+    color: "transparent",
+    textShadow: "0 0 5px rgba(176, 101, 40, 0.5)",
+    padding: "0.3125rem 0.9375rem",
+    textDecoration: 'none',
+    "&:hover": {
+      textDecoration: "underline",
+      color: `${theme.palette.primary.dark} !important`,
+      cursor: "pointer",
+    },
+    "&:after": {
+      content: '""',
+      width: "0px",
+      height: 0,
+      border: "2px solid",
+      position: "absolute",
+      top: "50%",
+      marginTop: "20px",
+      left: "50%",
+      marginLeft: "-2px",
+      opacity: 0,
+      boxSizing: "border-box",
+    },
+    "&:hover:after": {
+      opacity: 1,
+    }
+  },
+
+  [`& .${classes.currentLink}`]: {
+    color: `${theme.palette.primary.main} !important`,
+    "&:after": {
+      opacity: 1
+    }
+  },
+
+  [`& .${classes.menuwrapper}`]: {
+    width: '100%',
+    display: 'none',
+    background: '#fff',
+    '@media(max-width: 64.0625rem)': {
+      display: 'block !important'
+    }
+  },
+
+  [`& .${classes.menu}`]: {
+    width: '100%',
+    background: theme.palette.primary.main,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: '0.625rem'
+  },
+
+  [`& .${classes.hamburgerwrapper}`]: {
+    width: '0.965rem', 
+    margin: '0.84375rem 0.625rem',
+    height: '1.125rem',
+    transform: 'translateY(.275rem)',
+    outline: 'none',
+    boxShadow: 'none',
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  },
+
+  [`& .${classes.linkContainer}`]: {
+    borderWidth: `0 0.625rem`,
+    borderStyle: 'solid',
+    borderColor: theme.palette.primary.main,
+    textAlign: 'center',
+    padding: '0.9375rem 0.9375rem 1.5625rem 0.9375rem',
+    listStyle: 'none',
+    margin: 0
+  },
+
+  [`& .${classes.menuLink}`]: {
+    fontSize: '16px',
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    margin: 0,
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  }
+}));
+
+const Header = ({ siteTitle, pathname, dropDown, setDropDown, route }) => {
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -27,7 +146,7 @@ const Header = ({ siteTitle, pathname, dropDown, setDropDown, route, ...props })
   const linkArray = ["Portfolio", "Services", "", "About", "Contact"]
 
   return (
-    <AppBar position="relative" elevation={0}>
+    <StyledAppBar position="relative" elevation={0}>
       <div 
         role="link" 
         tabIndex={0} 
@@ -102,8 +221,8 @@ const Header = ({ siteTitle, pathname, dropDown, setDropDown, route, ...props })
           </ul>
         </Collapse>
       </div>
-    </AppBar>
-  )
+    </StyledAppBar>
+  );
 }
 
 const headerIntroAnimation = () => {
@@ -129,101 +248,6 @@ const headerIntroAnimation = () => {
     delay: 0.5
   })
 }
-
-const headerStyles = makeStyles(theme => ({
-  appbarwrapper: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "#fff",
-    '@media(max-width: 64.0625rem)': {
-      display: 'none'
-    }
-  },
-  link: {
-    fontWeight: 700,
-    fontSize: "0.875rem",
-    lineHeight: "7.5rem",
-    transition: "all 0.4s ease-in-out",
-    position: "relative",
-    color: "transparent",
-    textShadow: "0 0 5px rgba(176, 101, 40, 0.5)",
-    padding: "0.3125rem 0.9375rem",
-    textDecoration: 'none',
-    "&:hover": {
-      textDecoration: "underline",
-      color: `${theme.palette.primary.dark} !important`,
-      cursor: "pointer",
-    },
-    "&:after": {
-      content: '""',
-      width: "0px",
-      height: 0,
-      border: "2px solid",
-      position: "absolute",
-      top: "50%",
-      marginTop: "20px",
-      left: "50%",
-      marginLeft: "-2px",
-      opacity: 0,
-      boxSizing: "border-box",
-    },
-    "&:hover:after": {
-      opacity: 1,
-    }
-  },
-  currentLink: {
-    color: `${theme.palette.primary.main} !important`,
-    "&:after": {
-      opacity: 1
-    }
-  },
-  menuwrapper: {
-    width: '100%',
-    display: 'none',
-    background: '#fff',
-    '@media(max-width: 64.0625rem)': {
-      display: 'block !important'
-    }
-  },
-  menu: {
-    width: '100%',
-    background: theme.palette.primary.main,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    padding: '0.625rem'
-  },
-  hamburgerwrapper: {
-    width: '0.965rem', 
-    margin: '0.84375rem 0.625rem',
-    height: '1.125rem',
-    transform: 'translateY(.275rem)',
-    outline: 'none',
-    boxShadow: 'none',
-    '&:hover': {
-      cursor: 'pointer'
-    }
-  },
-  linkContainer: {
-    borderWidth: `0 0.625rem`,
-    borderStyle: 'solid',
-    borderColor: theme.palette.primary.main,
-    textAlign: 'center',
-    padding: '0.9375rem 0.9375rem 1.5625rem 0.9375rem',
-    listStyle: 'none',
-    margin: 0
-  },
-  menuLink: {
-    fontSize: '16px',
-    fontWeight: 'bold',
-    textDecoration: 'none',
-    margin: 0,
-    '&:hover': {
-      cursor: 'pointer'
-    }
-  }
-}))
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
