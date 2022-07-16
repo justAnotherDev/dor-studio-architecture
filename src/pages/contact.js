@@ -81,7 +81,7 @@ if (typeof window !== 'undefined') {
   L.Marker.prototype.options.icon = DefaultIcon;
 }
 
-const IndexPage = props => {
+const IndexPage = () => {
   const { contactJson } = useStaticQuery(graphql`
     {
       contactJson {

@@ -15,7 +15,7 @@ const classes = {
   textContanier: `${PREFIX}-textContanier`
 };
 
-const Root = styled('React.Fragment')((
+const Root = styled('div')((
   {
     theme
   }

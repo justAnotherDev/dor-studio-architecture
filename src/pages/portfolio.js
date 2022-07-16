@@ -17,7 +17,7 @@ const classes = {
   overlay: `${PREFIX}-overlay`
 };
 
-const Root = styled('React.Fragment')((
+const Root = styled('div')((
   {
     theme
   }

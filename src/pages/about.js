@@ -16,7 +16,6 @@ const classes = {
   link: `${PREFIX}-link`
 };
 
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const Root = styled('div')((
   {
     theme
@@ -51,11 +50,11 @@ const Root = styled('div')((
   [`& .${classes.aboutPaddingContainer}`]: {
     padding: '0 0.625rem',
     width: '100%',
-    '&:first-child': {
+    '&:first-of-type': {
       width: '80%'
     },
     '@media(max-width: 47.9375rem)': {
-      '&:first-child': {
+      '&:first-of-type': {
         width: '100%'
       }
     }
@@ -69,7 +68,7 @@ const Root = styled('div')((
   }
 }));
 
-const IndexPage = props => {
+const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
     {
