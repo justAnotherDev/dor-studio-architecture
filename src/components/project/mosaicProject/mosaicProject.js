@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
+import { styled } from '@mui/material/styles';
 import "./mosaicProject.scss"
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { makeStyles } from "@material-ui/core";
 import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavigator";
 
 const MosaicProject = ({ project, navigation }) => {
@@ -12,9 +12,18 @@ const MosaicProject = ({ project, navigation }) => {
       <div className="project-container mosaic-project">
         <div className="left-container">
           {project.mosaic.map((item, mosaicIndex) => {
-            const gridClass = gridStyles(item);
+            const StyledGrid = styled('div')({
+              display: 'grid',
+              marginBottom: '0.9375rem',
+              gap: '0.9375rem',
+              gridTemplateColumns: '1fr '.repeat(item.columns).trimEnd(),
+              '&:hover': { cursor: "pointer" },
+              '@media(max-width: 61.9375rem)': {
+                gridTemplateColumns: '1fr !important'
+              }
+            })
             return (
-              <div key={mosaicIndex} className={gridClass.grid}>
+              <StyledGrid key={mosaicIndex}>
                 {item.images.map((image, i) => (
                   <GatsbyImage 
                     key={i} 
@@ -32,7 +41,7 @@ const MosaicProject = ({ project, navigation }) => {
                     }}
                   />
                 ))}
-              </div>
+              </StyledGrid>
             )
           })}
         </div>
@@ -79,20 +88,7 @@ const MosaicProject = ({ project, navigation }) => {
         )
       }
     </div>
-  )
+  );
 }
-
-const gridStyles = makeStyles({
-  grid: {
-    display: 'grid',
-    marginBottom: '0.9375rem',
-    gap: '0.9375rem',
-    gridTemplateColumns: item => '1fr '.repeat(item.columns).trimEnd(),
-    '&:hover': { cursor: "pointer" },
-    '@media(max-width: 61.9375rem)': {
-      gridTemplateColumns: '1fr !important'
-    }
-  }
-})
 
 export default MosaicProject

@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core"
+import { styled } from '@mui/material/styles';
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
@@ -6,8 +6,71 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import Subheader from "../components/subheader"
 
+const PREFIX = 'IndexPage';
+
+const classes = {
+  aboutWrapper: `${PREFIX}-aboutWrapper`,
+  aboutImageContainer: `${PREFIX}-aboutImageContainer`,
+  aboutContainer: `${PREFIX}-aboutContainer`,
+  aboutPaddingContainer: `${PREFIX}-aboutPaddingContainer`,
+  link: `${PREFIX}-link`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.aboutWrapper}`]: {
+    width: '100%',
+    marginBottom: '1.875rem',
+    display: 'flex',
+    justifyContent: 'space-between',
+    '@media(max-width: 47.9375rem)': {
+      flexDirection: 'column',
+      marginBottom: 0
+    }
+  },
+
+  [`& .${classes.aboutImageContainer}`]: {
+    width: '100%'
+  },
+
+  [`& .${classes.aboutContainer}`]: {
+    backgroundColor: theme.palette.gridItem,
+    padding: '2.3rem 1.875rem 1.875rem',
+    width: 'calc(50% - 0.9375rem)',
+    textTransform: 'none',
+    '@media(max-width: 47.9375rem)': {
+      width: '100%',
+      marginBottom: '1.875rem'
+    }
+  },
+
+  [`& .${classes.aboutPaddingContainer}`]: {
+    padding: '0 0.625rem',
+    width: '100%',
+    '&:first-child': {
+      width: '80%'
+    },
+    '@media(max-width: 47.9375rem)': {
+      '&:first-child': {
+        width: '100%'
+      }
+    }
+  },
+
+  [`& .${classes.link}`]: {
+    color: theme.palette.link,
+    '&:visited': {
+      color: theme.palette.link
+    }
+  }
+}));
+
 const IndexPage = props => {
-  const classes = aboutStyles(props)
+
   const data = useStaticQuery(graphql`
     {
       aboutJson {
@@ -43,7 +106,7 @@ const IndexPage = props => {
   const aboutData = data.aboutJson;
 
   return (
-    <>
+    (<Root>
       <Seo title="About" />
       <Subheader subheader={aboutData.subheader} />
       <div className={classes.aboutWrapper}>
@@ -96,51 +159,9 @@ const IndexPage = props => {
           </div>
         </div>
       </div>
-    </>
-  )
+    </Root>)
+  );
 }
-const aboutStyles = makeStyles(theme => ({
-  aboutWrapper: {
-    width: '100%',
-    marginBottom: '1.875rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    '@media(max-width: 47.9375rem)': {
-      flexDirection: 'column',
-      marginBottom: 0
-    }
-  },
-  aboutImageContainer: {
-    width: '100%'
-  },
-  aboutContainer: {
-    backgroundColor: theme.palette.gridItem,
-    padding: '2.3rem 1.875rem 1.875rem',
-    width: 'calc(50% - 0.9375rem)',
-    textTransform: 'none',
-    '@media(max-width: 47.9375rem)': {
-      width: '100%',
-      marginBottom: '1.875rem'
-    }
-  },
-  aboutPaddingContainer: {
-    padding: '0 0.625rem',
-    width: '100%',
-    '&:first-child': {
-      width: '80%'
-    },
-    '@media(max-width: 47.9375rem)': {
-      '&:first-child': {
-        width: '100%'
-      }
-    }
-  },
-  link: {
-    color: theme.palette.link,
-    '&:visited': {
-      color: theme.palette.link
-    }
-  }
-}))
+
 IndexPage.Layout = Layout
 export default IndexPage

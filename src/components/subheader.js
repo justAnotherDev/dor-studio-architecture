@@ -1,10 +1,26 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core"
+import { styled } from '@mui/material/styles';
 
-const Subheader = ({ subheader, ...props }) => {
-  const classes = subheaderStyles(props)
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+    width: "100%",
+    background: theme.palette.subheader.main,
+    padding: "2.5rem 1.875rem",
+    color: "white",
+    textAlign: "center",
+    minHeight: '9.375rem',
+    "@media(max-width: 47.9375rem)": {
+      padding: "2.5rem 0.9375rem",
+    }
+}));
+
+const Subheader = ({ subheader }) => {
+
   return (
-    <div className={classes.subheader}>
+    <Root>
       <h4 style={{ marginBottom: 0 }}>{subheader.title}</h4>
       <p>
         <span style={{ textTransform: "none" }}>
@@ -16,22 +32,8 @@ const Subheader = ({ subheader, ...props }) => {
           ))}
         </span>
       </p>
-    </div>
-  )
+    </Root>
+  );
 }
-
-const subheaderStyles = makeStyles(theme => ({
-  subheader: {
-    width: "100%",
-    background: theme.palette.subheader.main,
-    padding: "2.5rem 1.875rem",
-    color: "white",
-    textAlign: "center",
-    minHeight: '9.375rem',
-    "@media(max-width: 47.9375rem)": {
-      padding: "2.5rem 0.9375rem",
-    }
-  },
-}))
 
 export default Subheader

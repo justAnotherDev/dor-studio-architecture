@@ -1,13 +1,27 @@
 import React, { useState } from 'react'
+import { styled } from '@mui/material/styles';
 import "./mosaicProjectNavigator.scss"
 import Slider from "react-slick"
 import CarouselArrow from '../../carouselArrow';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ProjectNavigator from '../projectNavigator/projectNavigator';
-import { makeStyles } from '@material-ui/core';
- 
-const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey, ...props }) => {
-  const classes = mpnStyles(props)
+const PREFIX = 'MosaicProjectNavigator';
+
+const classes = {
+  extraLightText: `${PREFIX}-extraLightText`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.extraLightText}`]: {
+    color: theme.palette.extraLightText
+  }
+}));
+
+const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }) => {
   const [currentSlide, setCurrentSlide] = useState(modalKey + 1)
   const [totalSlides,] = useState(project.mosaic.reduce((s,e) => s + e.images.length, 0))
   
@@ -30,7 +44,7 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey, 
   };
 
   return (
-    <div className="mpn__wrapper">
+    <Root className="mpn__wrapper">
       <div className="mpn__header">
         <div className="mpn__slide-numbers">
           <div className="mpn__slide-fraction">
@@ -59,14 +73,8 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey, 
         ))}
       </Slider>
       <ProjectNavigator navigation={navigation} />
-    </div>
+    </Root>
   );
 }
-
-const mpnStyles = makeStyles(theme => ({
-  extraLightText: {
-    color: theme.palette.extraLightText
-  }
-}))
 
 export default MosaicProjectNavigator

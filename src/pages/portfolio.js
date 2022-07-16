@@ -1,14 +1,78 @@
 import React, { useRef, useEffect, useState, useLayoutEffect } from "react"
+import { styled } from '@mui/material/styles';
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { makeStyles } from "@material-ui/core"
 import gsap from "gsap"
 import "../styles/index.scss"
 
+const PREFIX = 'IndexPage';
+
+const classes = {
+  filterWrapper: `${PREFIX}-filterWrapper`,
+  filterList: `${PREFIX}-filterList`,
+  filterListItem: `${PREFIX}-filterListItem`,
+  filterListItemText: `${PREFIX}-filterListItemText`,
+  overlay: `${PREFIX}-overlay`
+};
+
+const Root = styled('React.Fragment')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.filterWrapper}`]: {
+    backgroundColor: theme.palette.secondary.main,
+    color: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "7.5rem",
+    position: "relative",
+  },
+
+  [`& .${classes.filterList}`]: {
+    padding: "0 1.875rem",
+    listStyle: "none",
+    textAlign: "center",
+    display: "flex",
+    margin: 0,
+    flexWrap: "wrap",
+  },
+
+  [`& .${classes.filterListItem}`]: {
+    padding: "0.5rem 1.5625rem",
+    fontSize: "0.75rem",
+    position: "relative",
+    "&:not(:last-child):after": {
+      content: '""',
+      width: "0.125rem",
+      height: "0.125rem",
+      background: "#fff",
+      position: "absolute",
+      top: "50%",
+      right: 0,
+    },
+    "@media(max-width: 61.9375rem)": {
+      padding: "0.5rem 0.4375rem",
+    },
+  },
+
+  [`& .${classes.filterListItemText}`]: {
+    padding: "0.5rem",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+
+  [`& .${classes.overlay}`]: {
+    backgroundColor: `${theme.palette.primary.main}CC`
+  }
+}));
+
 const IndexPage = props => {
-  const classes = portfolioStyles(props)
+
   const {
     allHomeJson: { edges },
   } = useStaticQuery(graphql`
@@ -112,7 +176,7 @@ const IndexPage = props => {
   const filterKeyRegex = /[^A-Za-z0-9]/g
 
   return (
-    <>
+    (<Root>
       <Seo title="Portfolio" />
       <div id="filter-wrapper" className={classes.filterWrapper}>
         <div className="filter-box"></div>
@@ -188,56 +252,9 @@ const IndexPage = props => {
           ))}
         </div>
       </div>
-    </>
-  )
+    </Root>)
+  );
 }
-
-const portfolioStyles = makeStyles(theme => ({
-  filterWrapper: {
-    backgroundColor: theme.palette.secondary.main,
-    color: "white",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "7.5rem",
-    position: "relative",
-  },
-  filterList: {
-    padding: "0 1.875rem",
-    listStyle: "none",
-    textAlign: "center",
-    display: "flex",
-    margin: 0,
-    flexWrap: "wrap",
-  },
-  filterListItem: {
-    padding: "0.5rem 1.5625rem",
-    fontSize: "0.75rem",
-    position: "relative",
-    "&:not(:last-child):after": {
-      content: '""',
-      width: "0.125rem",
-      height: "0.125rem",
-      background: "#fff",
-      position: "absolute",
-      top: "50%",
-      right: 0,
-    },
-    "@media(max-width: 61.9375rem)": {
-      padding: "0.5rem 0.4375rem",
-    },
-  },
-  filterListItemText: {
-    padding: "0.5rem",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-  overlay: {
-    backgroundColor: `${theme.palette.primary.main}CC`,
-    inset: 0,
-  },
-}))
 
 IndexPage.Layout = Layout
 export default IndexPage

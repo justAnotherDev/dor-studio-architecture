@@ -1,12 +1,30 @@
-import { makeStyles } from '@material-ui/core';
+import { styled } from '@mui/material/styles';
 import { Link } from 'gatsby';
 import React from 'react'
 import './projectNavigator.scss'
 
-const ProjectNavigator = ({ navigation, ...props }) => {
-  const classes = projectNavStyles(props)
+const PREFIX = 'ProjectNavigator';
+
+const classes = {
+  projectNav: `${PREFIX}-projectNav`,
+  text: `${PREFIX}-text`,
+  extraLightText: `${PREFIX}-extraLightText`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  color: theme.palette.gridItem,
+  [`& .${classes.text}`]: { color: theme.palette.text },
+  [`& .${classes.extraLightText}`]: { color: theme.palette.extraLightText }
+}));
+
+const ProjectNavigator = ({ navigation }) => {
+
   return (
-    <div className={`${classes.projectNav} project-nav`}>
+    <Root className={`${classes.projectNav} project-nav`}>
       <div className="prev-project">
         <Link to={`/projects/${navigation.prev.link}`}>
           <h4 className={classes.text}>{navigation.prev.projectName}</h4>
@@ -24,14 +42,8 @@ const ProjectNavigator = ({ navigation, ...props }) => {
           <span className={classes.extraLightText}>Next Project</span>
         </Link>
       </div>
-    </div>
+    </Root>
   );
 }
 
-const projectNavStyles = makeStyles(theme => ({
-  projectNav: { color: theme.palette.gridItem },
-  text : { color: theme.palette.text },
-  extraLightText: { color: theme.palette.extraLightText }
-}))
- 
 export default ProjectNavigator
