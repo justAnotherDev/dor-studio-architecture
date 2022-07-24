@@ -7,6 +7,9 @@ import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavig
 const MosaicProject = ({ project, navigation }) => {
   const [modalKey, setModalKey] = useState(null)
   const resetModalKey = () => setModalKey(null)
+  function handleImageClick(e) {
+    console.log(e)
+  }
   return (
     <div className="project-wrapper">
       <div className="project-container mosaic-project">
@@ -25,21 +28,22 @@ const MosaicProject = ({ project, navigation }) => {
             return (
               <StyledGrid key={mosaicIndex}>
                 {item.images.map((image, i) => (
-                  <GatsbyImage 
-                    key={i} 
-                    style={{ width: '100%', height: '100%' }} 
-                    image={image.src.childrenImageSharp[0].gatsbyImageData} 
-                    alt={image?.alt ? image.alt : "alt"}
-                    onClick={() => {
-                      setModalKey(
-                        (mosaicIndex > 0
-                          ? project.mosaic
-                              .slice(0, mosaicIndex)
-                              .reduce((s, e) => s + e.images.length, 0)
-                          : 0) + i
-                      )
-                    }}
-                  />
+                  <div onClick={() =>
+                    setModalKey(
+                      (mosaicIndex > 0
+                        ? project.mosaic
+                            .slice(0, mosaicIndex)
+                            .reduce((s, e) => s + e.images.length, 0)
+                        : 0) + i
+                    )}
+                  >
+                    <GatsbyImage 
+                      key={i} 
+                      style={{ width: '100%', height: '100%' }} 
+                      image={image.src.childrenImageSharp[0].gatsbyImageData} 
+                      alt={image?.alt ? image.alt : "alt"}
+                    />
+                  </div>
                 ))}
               </StyledGrid>
             )

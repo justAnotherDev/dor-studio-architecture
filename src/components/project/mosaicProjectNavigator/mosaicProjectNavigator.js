@@ -30,6 +30,9 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }
   }
   
   const settings = {
+    className: "center",
+    centerMode: true,
+    adaptiveHeight: true,
     dots: false,
     fade: false,
     infinite: true,
@@ -38,9 +41,41 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }
     slidesToScroll: 1,
     prevArrow: <CarouselArrow prevDirection={true} shiftAmount="1.875rem" />,
     nextArrow: <CarouselArrow prevDirection={false} shiftAmount="1.875rem" />,
+    centerPadding: "20%",
     autoplay: false,
     initialSlide: modalKey,
-    beforeChange: (oi, ni) => setCurrentSlide(ni + 1)
+    beforeChange: (oi, ni) => setCurrentSlide(ni + 1),
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          centerPadding: "15%"
+        }
+      },
+      {
+        breakpoint: 1550,
+        settings: {
+          centerPadding: "10%"
+        }
+      },
+      {
+        breakpoint: 1300,
+        settings: {
+          centerPadding: "10%"
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          centerPadding: "0%"
+        }
+      }
+    ],
+    style: {
+      flexGrow: 1,
+      display: "flex",
+      alignItems: "center"
+    }
   };
 
   return (

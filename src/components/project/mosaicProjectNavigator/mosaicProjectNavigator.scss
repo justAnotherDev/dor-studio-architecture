@@ -1,5 +1,7 @@
 .mpn__wrapper {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   z-index: 1101;
@@ -13,6 +15,7 @@
   height: 7.1875rem;
   width: 100%;
   display: flex;
+  flex-shrink: 0;
 }
 
 .mpn__title, .mpn__slide-numbers, .mpn__close-modal {
