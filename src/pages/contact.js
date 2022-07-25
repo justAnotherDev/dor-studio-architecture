@@ -77,11 +77,11 @@ if (typeof window !== 'undefined') {
     iconRetinaUrl: iconRetina,
     shadowUrl: iconShadow
   });
-  
+
   L.Marker.prototype.options.icon = DefaultIcon;
 }
 
-const IndexPage = () => {
+const IndexPage = ({ transitionState }) => {
   const { contactJson } = useStaticQuery(graphql`
     {
       contactJson {
@@ -101,8 +101,11 @@ const IndexPage = () => {
   `)
 
   useEffect(() => {
-    setTimeout(() => window.dispatchEvent(new Event("resize")), 350)
-  }, [])
+    if (typeof window !== `undefined`
+      && (transitionState === "exit" || transitionState === null)) {
+      window.dispatchEvent(new Event("resize"))
+    }
+  }, [transitionState])
   const mapProps = {
     className: classes.mapContainer,
     center: contactJson.mapCenterCoordinates,
@@ -142,9 +145,9 @@ const IndexPage = () => {
             <div key={i} className={classes.section}>
               <p style={{ textTransform: 'uppercase' }}><b>{section.indicator}</b></p>
               <p>
-                {section.email ? 
+                {section.email ?
                   <a className="discrete-link" href={`mailto:${contactJson.email}`}>{contactJson.email}</a>
-                : 
+                  :
                   section.text
                 }
               </p>

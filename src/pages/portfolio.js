@@ -5,6 +5,7 @@ import Seo from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import gsap from "gsap"
+import usePrevious from "../hooks/usePrevious";
 import "../styles/index.scss"
 
 const PREFIX = 'IndexPage';
@@ -71,7 +72,7 @@ const Root = styled('div')((
   }
 }));
 
-const IndexPage = props => {
+const IndexPage = ({ route, transitionState }) => {
 
   const {
     allHomeJson: { edges },
@@ -94,7 +95,7 @@ const IndexPage = props => {
       }
     }
   `)
-
+  const prevTransitionState = usePrevious(transitionState)
   // Isotope logic
   const isotope = useRef()
   const [filterKey, setFilterKey] = useState("*")
@@ -116,44 +117,47 @@ const IndexPage = props => {
   }, [])
 
   useEffect(() => {
+    if (transitionState === "exit" || transitionState === null) {
+      animateFilterBox(document.getElementById("portfolio__all").getBoundingClientRect(), false)
+    }
+  }, [transitionState])
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       filterKey === "*"
         ? isotope.current.arrange({ filter: "*" })
         : isotope.current.arrange({ filter: `.${filterKey}` })
+      // Page has already loaded and all transitions complete
+      if (prevTransitionState === "enter") {
+        animateFilterBox(filterBoxEl.current.getBoundingClientRect(), true)
+      }
     }
-  }, [filterKey])
+  }, [filterKey, transitionState])
 
   const handleFilterKeyChange = (e, key) => {
-    animateFilterBox(e.target.getBoundingClientRect(), true)
     filterBoxEl.current = e.target
     setFilterKey(key)
   }
 
-  // Moving filter box code
-  useEffect(() => {
-    animateFilterBox(
-      document.getElementById("portfolio__all").getBoundingClientRect(),
-      false
-    )
-  }, [])
-
   const animateFilterBox = (boundingBox, animate) => {
-    const { top, left, width, height } = boundingBox
-    const offset = document
-      .getElementsByTagName("header")[0]
-      .getBoundingClientRect().height
-    const tl = gsap.timeline()
-    gsap.set(".filter-box", {
-      border: "0.125rem solid white",
-    })
-    tl.to(".filter-box", {
-      top: top - offset,
-      left,
-      width,
-      height,
-      ease: "expo.out",
-      duration: animate ? 0.5 : 0,
-    })
+    if (typeof window !== `undefined`) {
+      const { top, left, width, height } = boundingBox
+      const offset = document
+        .getElementsByTagName("header")[0]
+        .getBoundingClientRect().height
+      const tl = gsap.timeline()
+      gsap.set(".filter-box", {
+        border: "0.125rem solid white",
+      })
+      tl.to(".filter-box", {
+        top: top - offset,
+        left,
+        width,
+        height,
+        ease: "expo.out",
+        duration: animate ? 0.5 : 0,
+      })
+    }
   }
 
   useLayoutEffect(() => {
@@ -227,14 +231,15 @@ const IndexPage = props => {
                 .map(key => key.replace(filterKeyRegex, ""))
                 .join(" ")}`}
               key={i}
-              onClick={() => props.route(`/projects/${item.node.link}`)}
+              onClick={() => route(`/projects/${item.node.link}`)}
               role="link"
               onKeyDown={e => {
                 if (e.code === "Enter")
-                  props.route(`/projects/${item.node.link}`)
+                  route(`/projects/${item.node.link}`)
               }}
             >
               <GatsbyImage
+                loading="eager"
                 image={item.node.src.childImageSharp.gatsbyImageData}
                 alt={item.node.alt}
               />

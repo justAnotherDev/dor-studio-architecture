@@ -28,7 +28,7 @@ const MosaicProject = ({ project, navigation }) => {
             return (
               <StyledGrid key={mosaicIndex}>
                 {item.images.map((image, i) => (
-                  <div onClick={() =>
+                  <div key={i}  onClick={() =>
                     setModalKey(
                       (mosaicIndex > 0
                         ? project.mosaic
@@ -38,7 +38,6 @@ const MosaicProject = ({ project, navigation }) => {
                     )}
                   >
                     <GatsbyImage 
-                      key={i} 
                       style={{ width: '100%', height: '100%' }} 
                       image={image.src.childrenImageSharp[0].gatsbyImageData} 
                       alt={image?.alt ? image.alt : "alt"}

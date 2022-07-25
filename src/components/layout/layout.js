@@ -17,6 +17,7 @@ import ToTop from "../totop/totop"
 
 const Layout = props => {
   const [dropDown, setDropDown] = useState(false)
+  const [transitionState, setTransitionState] = useState(null)
   
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,7 +38,7 @@ const Layout = props => {
     } else navigate(route)
   }
 
-  const childrenWithProps = React.cloneElement(props.children, { route })
+  const childrenWithProps = React.cloneElement(props.children, { route, transitionState })
 
   return (
     <div className="app">
@@ -49,7 +50,7 @@ const Layout = props => {
         setDropDown={setDropDown}
       />
       <div className="main-wrapper">
-        <Framer {...props}>
+        <Framer {...props} setTransitionState={setTransitionState}>
           <main style={{ height: '100%' }}>{childrenWithProps}</main>
         </Framer>
       </div>

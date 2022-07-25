@@ -2,7 +2,7 @@ import React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLocation } from "@reach/router"
 
-const Transition = ({ children }) => {
+const Transition = ({ children, setTransitionState }) => {
 
   const duration = 0.35
 
@@ -34,6 +34,7 @@ const Transition = ({ children }) => {
         animate="enter"
         exit="exit"
         style={{height: '100%'}}
+        onAnimationComplete={(definition) => setTransitionState(definition)}
       >
         {children}
       </motion.div>
