@@ -156,6 +156,14 @@ const IndexPage = ({ route, transitionState }) => {
         height,
         ease: "expo.out",
         duration: animate ? 0.5 : 0,
+        onComplete: () => {
+          const filterBox = document.getElementsByClassName("filter-box")[0]
+          const { offsetLeft, offsetParent } = filterBoxEl.current
+          const filterLILeft = offsetLeft + offsetParent.offsetLeft
+          if (filterLILeft > filterBox.offsetLeft + 2 || filterBox.offsetLeft > filterLILeft + 2) {
+            filterBox.style.left = `${filterLILeft}px`
+          }
+        }
       })
     }
   }
