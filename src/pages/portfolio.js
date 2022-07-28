@@ -7,6 +7,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import gsap from "gsap"
 import usePrevious from "../hooks/usePrevious";
 import "../styles/index.scss"
+import Overlay from "../components/overlay/overlay";
+import { getProjectValue } from "../utils";
 
 const PREFIX = 'Portfolio';
 
@@ -75,21 +77,23 @@ const Root = styled('div')((
 const IndexPage = ({ route, transitionState }) => {
 
   const {
-    allHomeJson: { edges },
+    allPortfolioJson: { edges },
   } = useStaticQuery(graphql`
     {
-      allHomeJson {
+      allPortfolioJson {
         edges {
           node {
-            header
-            subheader
-            src {
+            project_name
+            project_data {
+              header
+              descr
+            }
+            cover_image {
               childImageSharp {
                 gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               }
             }
-            alt
-            link
+            slug
           }
         }
       }
@@ -182,7 +186,7 @@ const IndexPage = ({ route, transitionState }) => {
   const projectTypes = [
     "All",
     ...new Set(
-      edges.map(({ node: { subheader } }) => subheader.split(" ")).flat()
+      edges.map(({ node }) => getProjectValue(node, "Project Type").split("\n")).flat()
     ),
   ]
 
@@ -232,37 +236,32 @@ const IndexPage = ({ route, transitionState }) => {
       </div>
       <div className="isotope-grid-wrapper">
         <div className="isotope-grid">
-          {edges.map((item, i) => (
+          {edges.map(({ node: project }, i) => (
             <div
-              className={`isotope-grid-item ${item.node.subheader
+              className={`isotope-grid-item ${getProjectValue(project, "Project Type")
                 .split(" ")
                 .map(key => key.replace(filterKeyRegex, ""))
                 .join(" ")}`}
               key={i}
-              onClick={() => route(`/projects/${item.node.link}`)}
+              onClick={() => route(`/projects/${project.slug}`)}
               role="link"
               onKeyDown={e => {
                 if (e.code === "Enter")
-                  route(`/projects/${item.node.link}`)
+                  route(`/projects/${project.slug}`)
               }}
             >
               <GatsbyImage
                 loading="eager"
-                image={item.node.src.childImageSharp.gatsbyImageData}
+                image={project.cover_image.childImageSharp.gatsbyImageData}
                 imgStyle={{ objectFit: "cover" }}
-                alt={item.node.alt}
+                alt={project.slug}
                 style={{ aspectRatio: i % 2 == 0 ? "16 / 9" : "5 / 6" }}
               />
-              <div
-                className={`overlay isotope-grid-item-overlay ${classes.overlay}`}
-              >
-                <div className="overlay-inner portfolio">
-                  <div className="overlay-text portfolio">
-                    <h4 className="text-header">{item.node.header}</h4>
-                    <h6 className="text-subheader">{item.node.subheader}</h6>
-                  </div>
-                </div>
-              </div>
+              <Overlay 
+                classes={`overlay isotope-grid-item-overlay ${classes.overlay}`} 
+                project={project}
+                portfolio={true}
+              />
             </div>
           ))}
         </div>

@@ -5,6 +5,8 @@ import Slider from "react-slick"
 import CarouselArrow from '../../carouselArrow';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ProjectNavigator from '../projectNavigator/projectNavigator';
+import { getProjectValue } from '../../../utils';
+
 const PREFIX = 'MosaicProjectNavigator';
 
 const classes = {
@@ -24,10 +26,6 @@ const Root = styled('div')((
 const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }) => {
   const [currentSlide, setCurrentSlide] = useState(modalKey + 1)
   const [totalSlides,] = useState(project.mosaic.reduce((s,e) => s + e.images.length, 0))
-  
-  const returnProjectValue = (key) => {
-    return project.project_data.filter(({ header }) => header === key).shift().descr
-  }
   
   const settings = {
     className: "center",
@@ -93,7 +91,7 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }
             style={{ textTransform: "none" }} 
             className={classes.extraLightText}
           >
-            {`${returnProjectValue("Project Type").replace(/\n/g," ")} - ${returnProjectValue("Date")}`}
+            {`${getProjectValue(project, "Project Type").replace(/\n/g," ")} - ${getProjectValue(project, "Date")}`}
           </p>
         </div>
         <div className="mpn__close-modal">
