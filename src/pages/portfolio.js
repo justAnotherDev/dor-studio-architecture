@@ -142,6 +142,7 @@ const IndexPage = ({ route, transitionState }) => {
   const animateFilterBox = (boundingBox, animate) => {
     if (typeof window !== `undefined`) {
       const { top, left, width, height } = boundingBox
+      const scrollTop = document.documentElement.scrollTop
       const offset = document
         .getElementsByTagName("header")[0]
         .getBoundingClientRect().height
@@ -150,7 +151,7 @@ const IndexPage = ({ route, transitionState }) => {
         border: "0.125rem solid white",
       })
       tl.to(".filter-box", {
-        top: top - offset,
+        top: top - offset + scrollTop,
         left,
         width,
         height,
