@@ -10,7 +10,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 
-const PREFIX = 'IndexPage';
+const PREFIX = 'Contact';
 
 const classes = {
   contactWrapper: `${PREFIX}-contactWrapper`,

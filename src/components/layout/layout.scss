@@ -219,13 +219,13 @@ li > p {
   margin-bottom: calc(1.45rem / 2);
 }
 * {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 *:before {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 .span-link {
   text-decoration: underline;

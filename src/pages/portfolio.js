@@ -8,7 +8,7 @@ import gsap from "gsap"
 import usePrevious from "../hooks/usePrevious";
 import "../styles/index.scss"
 
-const PREFIX = 'IndexPage';
+const PREFIX = 'Portfolio';
 
 const classes = {
   filterWrapper: `${PREFIX}-filterWrapper`,
@@ -254,8 +254,8 @@ const IndexPage = ({ route, transitionState }) => {
               <div
                 className={`overlay isotope-grid-item-overlay ${classes.overlay}`}
               >
-                <div className="overlay-inner">
-                  <div className="overlay-text">
+                <div className="overlay-inner portfolio">
+                  <div className="overlay-text portfolio">
                     <h4 className="text-header">{item.node.header}</h4>
                     <h6 className="text-subheader">{item.node.subheader}</h6>
                   </div>

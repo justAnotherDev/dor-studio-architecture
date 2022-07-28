@@ -8,7 +8,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import CarouselArrow from "../components/carouselArrow"
 import '../styles/index.scss'
 
-const PREFIX = 'IndexPage';
+const PREFIX = 'Home';
 
 const classes = {
   overlay: `${PREFIX}-overlay`

@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Subheader from "../components/subheader"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const PREFIX = 'IndexPage';
+const PREFIX = 'Services';
 
 const classes = {
   grid: `${PREFIX}-grid`,

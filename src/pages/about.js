@@ -6,7 +6,7 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import Subheader from "../components/subheader"
 
-const PREFIX = 'IndexPage';
+const PREFIX = 'About';
 
 const classes = {
   aboutWrapper: `${PREFIX}-aboutWrapper`,
