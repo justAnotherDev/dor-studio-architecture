@@ -108,13 +108,15 @@ $white: #fff;
 /* ---- grid ---- */
 
 .isotope-grid-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.isotope-grid {
-  // padding: 0 0.9375rem;
-  margin: 0.9375rem auto auto;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+  margin-right: auto;
+  margin-left: auto;
+  &::before {
+    display: table;
+    content: " ";
+    box-sizing: border-box;
+  }
   @media (min-width: 48rem) {
     width: 46.875rem;
   }
@@ -124,7 +126,15 @@ $white: #fff;
   @media (min-width: 75rem) {
     width: 73.125rem;
   }
-  width: 100%;
+}
+
+.isotope-grid {
+  margin: 0.9375rem 0;
+  &::before {
+    display: table;
+    content: " ";
+    box-sizing: inherit;
+  }
 }
 
 /* clear fix */
@@ -137,8 +147,7 @@ $white: #fff;
 /* ---- .element-item ---- */
 
 /* 5 columns, percentage width */
-.isotope-grid-item,
-.isotope-grid-sizer {
+.isotope-grid-item {
   @media (min-width: 48rem) {
     width: 100%;
   }
@@ -146,12 +155,15 @@ $white: #fff;
     width: 50%;
   }
   @media (min-width: 75rem) {
-    width: 33%;
+    width: 33.33333333%;
   }
 }
 
 .isotope-grid-item {
   padding: 0.9375rem;
+  &.height1 {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 .isotope-grid-item-overlay {

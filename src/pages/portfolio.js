@@ -231,7 +231,6 @@ const IndexPage = ({ route, transitionState }) => {
       </div>
       <div className="isotope-grid-wrapper">
         <div className="isotope-grid">
-          <div className="isotope-grid-sizer"></div>
           {edges.map((item, i) => (
             <div
               className={`isotope-grid-item ${item.node.subheader
@@ -249,7 +248,9 @@ const IndexPage = ({ route, transitionState }) => {
               <GatsbyImage
                 loading="eager"
                 image={item.node.src.childImageSharp.gatsbyImageData}
+                imgStyle={{ objectFit: "cover" }}
                 alt={item.node.alt}
+                style={{ aspectRatio: i % 2 == 0 ? "16 / 9" : "5 / 6" }}
               />
               <div
                 className={`overlay isotope-grid-item-overlay ${classes.overlay}`}
