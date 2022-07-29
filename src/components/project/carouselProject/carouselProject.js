@@ -52,7 +52,7 @@ const CarouselProject = ({ project }) => {
               <div key={i}>
                 <p>{item.header}</p>
                 <p>
-                  {item.descr.split('\n').map((text, i) => (
+                  {item.descr.split('\n').filter(descr => descr !== "Conceptual").map((text, i) => (
                     <React.Fragment key={i}>
                       {text}
                       <br />

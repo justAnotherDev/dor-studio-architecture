@@ -242,7 +242,7 @@ const IndexPage = ({ route, transitionState }) => {
           {edges.map(({ node: project }, i) => (
             <div
               className={`isotope-grid-item ${getProjectValue(project, "Project Type")
-                .split(" ")
+                .split("\n")
                 .map(key => key.replace(filterKeyRegex, ""))
                 .join(" ")}`}
               key={i}
