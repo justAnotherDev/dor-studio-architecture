@@ -7,9 +7,7 @@ import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavig
 const MosaicProject = ({ project, navigation }) => {
   const [modalKey, setModalKey] = useState(null)
   const resetModalKey = () => setModalKey(null)
-  function handleImageClick(e) {
-    console.log(e)
-  }
+
   return (
     <div className="project-wrapper">
       <div className="project-container mosaic-project">

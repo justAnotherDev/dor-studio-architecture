@@ -101,7 +101,11 @@ const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }
       <Slider {...settings}>
         {project.mosaic.reduce((a, e) => [...a, ...e.images], []).map((image, i) => (
           <div className="image-wrapper" key={i}>
-            <GatsbyImage style={{ width: '100%', height: '100%' }} image={image.src.childrenImageSharp[0].gatsbyImageData} alt={image?.alt ? image.alt : "alt"} />
+            <GatsbyImage
+              style={{ height: "100%" }}
+              image={image.src.childrenImageSharp[0].gatsbyImageData} 
+              alt={image?.alt ? image.alt : "alt"}
+            />
           </div>
         ))}
       </Slider>

@@ -69,28 +69,30 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                 }
               }
             }
-            navigation {
-              prev {
-                projectName
-                link
-              }
-              next {
-                projectName
-                link
-              }
-            }
           }
         }
       }
     }
     `);
-    data.allPortfolioJson.edges.forEach((edge) => {
+    data.allPortfolioJson.edges.forEach((edge, index, portfolio) => {
+      const { node: prevProject } = index !== 0 ? portfolio[index - 1] : portfolio.slice(-1)[0]
+      const { node: nextProject } = index !== portfolio.length - 1 ? portfolio[index + 1] : portfolio[0]
+      const navigation = {
+        prev: {
+          projectName: prevProject.project_name,
+          link: `${prevProject.slug}/`
+        },
+        next: {
+          projectName: nextProject.project_name,
+          link: `${nextProject.slug}/`
+        }
+      }
       const { slug, ...project } = edge.node;
       createPage({
         path: `/projects/${slug}/`,
         component: require.resolve('./src/components/project/project.js'),
         context: {
-          data: project,
+          data: {...project, navigation },
         },
       });
     });

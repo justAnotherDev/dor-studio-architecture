@@ -36,7 +36,7 @@
         "images": [
           {
             "src": "../../images/projects/unaweep-workshop/ladderwork.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       },
@@ -45,37 +45,27 @@
         "images": [
           {
             "src": "../../images/projects/unaweep-workshop/workshop-with-completed-walls.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/unaweep-workshop/workshop-interior.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/about/building.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/services/the_property.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/unaweep-workshop/aerial-shot.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       }
-    ],
-    "navigation": {
-      "prev": {
-        "projectName": "Teaching Resilience in Changing Climates",
-        "link": "teaching-resilience/"
-      },
-      "next": {
-        "projectName": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
-        "link": "hollygrove-greenline-master-plan/"
-      }
-    }
+    ]
   },
   {
     "slug": "hollygrove-greenline-master-plan",
@@ -123,11 +113,11 @@
         "images": [
           {
             "src": "../../images/projects/hollygrove-greenline-master-plan/center-persp_1031_yellowcanopy-01.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/hollygrove-greenline-master-plan/int-tent-persp_1031_yellowcanopy1.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       },
@@ -136,11 +126,11 @@
         "images": [
           {
             "src": "../../images/projects/hollygrove-greenline-master-plan/IMG_2125.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/hollygrove-greenline-master-plan/MJA_0547.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       },
@@ -149,21 +139,11 @@
         "images": [
           {
             "src": "../../images/projects/hollygrove-greenline-master-plan/IMG_0001.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       }
-    ],
-    "navigation": {
-      "prev": {
-        "projectName": "Unaweep Workshop",
-        "link": "unaweep-workshop/"
-      },
-      "next": {
-        "projectName": "Carrollton River Center",
-        "link": "carrollton-river-center/"
-      }
-    }
+    ]
   },
   {
     "slug": "carrollton-river-center",
@@ -206,31 +186,21 @@
     "images": [
       {
         "src": "../../images/projects/carrollton-river-center/Carrollton-River-Center_Aerial-Views.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/carrollton-river-center/systems-diagram.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/carrollton-river-center/levee-access-section.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/carrollton-river-center/levee-access-section2.jpeg",
-        "alt": null
+        "alt": ""
       }
-    ],
-    "navigation": {
-      "prev": {
-        "projectName": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
-        "link": "hollygrove-greenline-master-plan/"
-      },
-      "next": {
-        "projectName": "Disaster Relief Shelter",
-        "link": "disaster-relief-shelter/"
-      }
-    }
+    ]
   },
   {
     "slug": "disaster-relief-shelter",
@@ -272,15 +242,15 @@
         "images": [
           {
             "src": "../../images/projects/disaster-relief-shelter/Storyboard_CLADDING.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/disaster-relief-shelter/A301-Building-Sections-24x36-1-e1547799382420.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/disaster-relief-shelter/DSCN0314.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       },
@@ -289,15 +259,15 @@
         "images": [
           {
             "src": "../../images/projects/disaster-relief-shelter/IMG_1279-e1547798844676.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/disaster-relief-shelter/IMG_1299-e1547798825663.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/disaster-relief-shelter/IMG_1331-e1547798800517.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       },
@@ -306,25 +276,122 @@
         "images": [
           {
             "src": "../../images/projects/disaster-relief-shelter/Program-Render_2-e1547798949587.jpeg",
-            "alt": null
+            "alt": ""
           },
           {
             "src": "../../images/projects/disaster-relief-shelter/Program-Storyboard_2-4-e1547799036277.jpeg",
-            "alt": null
+            "alt": ""
           }
         ]
       }
-    ],
-    "navigation": {
-      "prev": {
-        "projectName": "Carrollton River Center",
-        "link": "carrollton-river-center/"
+    ]
+  },
+  {
+    "slug": "new-orleans-dance-academy",
+    "project_name": "New Orleans Dance Academy",
+    "cover_image": {
+      "src": "../../images/projects/new-orleans-dance-academy/Corner-Perspective.jpeg",
+      "height": "short"
+    },
+    "descr": [
+      {
+        "text": "Inspired by the dance choreography of William Forsythe, the New Orleans Dance Academy creates a spectator experience of compression/expansion, push/pull to focus emphasis on performance spaces. For dancers, the building establishes a sense of repetition, as the backbone for practice, through the five tower studios. The public facade responds to both the historical context of the Warehouse District and the dynamic activity within."
       },
-      "next": {
-        "projectName": "New Orleans Dance Academy",
-        "link": "new-orleans-dance-academy/"
+      {
+        "text": "Building systems consist of a steel post-and-beam structure, decentralized outdoor air mechanical system, green roofs with water collection, and solar thermal water heating. The alternating solid metal and mesh facade panels, resolve the need for blocking and filtering solar radiation, while allowing cross ventilation. Requirements for ADA accessibility and life safety are also addressed in the building design."
       }
-    }
+    ],
+    "project_data": [
+      {
+        "header": "Location",
+        "descr": "Warehouse District, New Orleans, LA"
+      },
+      {
+        "header": "Site Context",
+        "descr": "Located near the French Quarter, the Warehouse District has recently experienced significant amounts of rehabilitation of the former industrial sites for programs such as multi-family housing and commerce."
+      },
+      {
+        "header": "Date",
+        "descr": "2013 (conceptual)"
+      },
+      {
+        "header": "Project Type",
+        "descr": "Educational"
+      }
+    ],
+    "carousel": false,
+    "mosaic": [
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/Corner-Perspective.jpeg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "columns": 3,
+        "images": [
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/Form-Axon_onesize.jpeg",
+            "alt": ""
+          },
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/Form-Axon_onesize2.jpeg",
+            "alt": ""
+          },
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/Form-Axon_onesize3.jpeg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/MJA_0517_2_edit.jpeg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "columns": 3,
+        "images": [
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/ShepardD_Final-Diag_Program.png",
+            "alt": ""
+          },
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/ShepardD_Final-Diag_Structure-01-e1547797164111.jpeg",
+            "alt": ""
+          },
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/mechdiag_whitebkgd-01.jpeg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/Tanzakademie6-e1547797741160.jpeg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "columns": 1,
+        "images": [
+          {
+            "src": "../../images/projects/new-orleans-dance-academy/ShepardD_Final-Plans-01-e1547798265283.jpeg",
+            "alt": ""
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "teaching-resilience",
@@ -363,34 +430,24 @@
     "images": [
       {
         "src": "../../images/projects/teaching-resilience/two-diagrams.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/teaching-resilience/SitePlans.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/teaching-resilience/SectionPerspective.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/teaching-resilience/teaching-resilience-perspective.jpeg",
-        "alt": null
+        "alt": ""
       },
       {
         "src": "../../images/projects/teaching-resilience/Perspectives.jpeg",
-        "alt": null
+        "alt": ""
       }
-    ],
-    "navigation": {
-      "prev": {
-        "projectName": "New Orleans Dance Academy",
-        "link": "new-orleans-dance-academy/"
-      },
-      "next": {
-        "projectName": "Unaweep Workshop",
-        "link": "unaweep-workshop/"
-      }
-    }
+    ]
   }
 ]
