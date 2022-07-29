@@ -15,7 +15,6 @@ const classes = {
   overlay: `${PREFIX}-overlay`
 };
 
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const Root = styled('div')((
   {
     theme
@@ -39,11 +38,13 @@ const IndexPage = props => {
               descr
             }
             cover_image {
-              childImageSharp {
-                gatsbyImageData(
-                  transformOptions: {cropFocus: CENTER}, width: 460, height: 636
-                  placeholder: BLURRED
-                )  
+              src {
+                childImageSharp {
+                  gatsbyImageData(
+                    transformOptions: {cropFocus: CENTER}, width: 460, height: 636
+                    placeholder: BLURRED
+                  )  
+                }
               }
             }
             slug
@@ -96,7 +97,7 @@ const IndexPage = props => {
               onKeyDown={e => { if (e.code === "Enter") props.route(`/projects/${project.slug}`) }}
             >
               <GatsbyImage
-                image={project.cover_image.childImageSharp.gatsbyImageData}
+                image={project.cover_image.src.childImageSharp.gatsbyImageData}
                 alt={project.project_name}
               />
               <Overlay classes={`overlay ${classes.overlay}`} project={project} />

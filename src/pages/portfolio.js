@@ -89,9 +89,12 @@ const IndexPage = ({ route, transitionState }) => {
               descr
             }
             cover_image {
-              childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+              src {
+                childImageSharp {
+                  gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                }
               }
+              height
             }
             slug
           }
@@ -252,10 +255,10 @@ const IndexPage = ({ route, transitionState }) => {
             >
               <GatsbyImage
                 loading="eager"
-                image={project.cover_image.childImageSharp.gatsbyImageData}
+                image={project.cover_image.src.childImageSharp.gatsbyImageData}
                 imgStyle={{ objectFit: "cover" }}
                 alt={project.slug}
-                style={{ aspectRatio: i % 2 == 0 ? "16 / 9" : "5 / 6" }}
+                style={{ aspectRatio: project.cover_image?.height === "short" ? "16 / 9" : "5 / 6" || "16 / 9" }}
               />
               <Overlay 
                 classes={`overlay isotope-grid-item-overlay ${classes.overlay}`} 

@@ -2,7 +2,10 @@
   {
     "slug": "unaweep-workshop",
     "project_name": "Unaweep Workshop",
-    "cover_image": "../../images/about/building.jpeg",
+    "cover_image": {
+      "src": "../../images/about/building.jpeg",
+      "height": "tall"
+    },
     "descr": [
       {
         "text": "A workshop barn designed for two home-steaders, who plan to keep building on the land they cleared themselves. The building is oriented to handle the powerful wind gusts, intense summer sun, and harsh winters characteristic of the high-desert canyon. A robust wood frame structure and high ceiling with a long clear span accommodate the DIY nature of the owners’ lifestyle."
@@ -39,7 +42,7 @@
       },
       {
         "columns": 2,
-        "images":[
+        "images": [
           {
             "src": "../../images/projects/unaweep-workshop/workshop-with-completed-walls.jpeg",
             "alt": null
@@ -77,11 +80,14 @@
   {
     "slug": "hollygrove-greenline-master-plan",
     "project_name": "Hollygrove Greenline Master Plan & Rain Garden Pilot Project",
-    "cover_image": "../../images/services/hollygrove.jpeg",
+    "cover_image": {
+      "src": "../../images/services/hollygrove.jpeg",
+      "height": "short"
+    },
     "descr": [
       {
         "text": "The Greenline is a community-based initiative that is being lead by the Carrollton Hollygrove CDC with the support of Trinity Christian Community Center, Longue Vue House and Gardens, and the Tulane City Center. The project sites, owned by the Sewerage and Water Board and formerly occupied by a rail line, were made available to the CDC for storm water management, wetland restoration education, and community activities, such as urban agriculture and playspace."
-      }, 
+      },
       {
         "text": "Greenline Goals:\n– Re-activate unused infrastructural space within the Hollygrove neighborhood\n– Educate the community on stormwater management strategies\n– Provide healthy, safe, enjoyable public outdoor spaces\n– Provide demonstration gardens for urban farming initiatives"
       },
@@ -127,7 +133,7 @@
       },
       {
         "columns": 2,
-        "images":[
+        "images": [
           {
             "src": "../../images/projects/hollygrove-greenline-master-plan/IMG_2125.jpeg",
             "alt": null
@@ -162,7 +168,10 @@
   {
     "slug": "carrollton-river-center",
     "project_name": "Carrollton River Center",
-    "cover_image": "../../images/projects/carrollton-river-center/Carrollton-River-Center_Aerial-Views.jpeg",
+    "cover_image": {
+      "src": "../../images/projects/carrollton-river-center/Carrollton-River-Center_Aerial-Views.jpeg",
+      "height": "short"
+    },
     "descr": [
       {
         "style": "italic",
@@ -226,11 +235,14 @@
   {
     "slug": "disaster-relief-shelter",
     "project_name": "Disaster Relief Shelter",
-    "cover_image": "../../images/projects/disaster-relief-shelter/Storyboard_CLADDING.jpeg",
+    "cover_image": {
+      "src": "../../images/projects/disaster-relief-shelter/Storyboard_CLADDING.jpeg",
+      "height": "tall"
+    },
     "descr": [
       {
         "text": "Studio reCOVER endeavored to design and build a prototype disaster relief shelter that is both socially and environmentally conscious. The structure is a modular kit of parts requiring few tools for assembly. The roof is designed to shade from the sun & utilize prevailing winds to reduce solar heat gain. Clerestory windows are installed in certain wall panels to create air flow through the interior space."
-      }, 
+      },
       {
         "text": "The wall system is based on a flexible plug and play concept which employs a standard 4×8 wall panel as well as programmed panels designated for amenities (i.e. storage, sleeping, water, electricity). As part of a four-person team, I helped design the programmed panels and subsequently built a storage and a window panel for the full scale model of the shelter."
       }
@@ -274,7 +286,7 @@
       },
       {
         "columns": 3,
-        "images":[
+        "images": [
           {
             "src": "../../images/projects/disaster-relief-shelter/IMG_1279-e1547798844676.jpeg",
             "alt": null
@@ -317,7 +329,10 @@
   {
     "slug": "teaching-resilience",
     "project_name": "Teaching Resilience in Changing Climates",
-    "cover_image": "../../images/projects/teaching-resilience/teaching-resilience-perspective.jpeg",
+    "cover_image": {
+      "src": "../../images/projects/teaching-resilience/teaching-resilience-perspective.jpeg",
+      "height": "tall"
+    },
     "descr": [
       {
         "style": "italic",
