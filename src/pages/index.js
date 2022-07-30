@@ -8,6 +8,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import CarouselArrow from "../components/carouselArrow"
 import '../styles/index.scss'
 import Overlay from "../components/overlay/overlay";
+import { assignNullSlug } from "../utils";
 
 const PREFIX = 'Home';
 
@@ -84,6 +85,11 @@ const IndexPage = props => {
     ],
   }
   const homeData = edges
+  homeData.forEach(({ node: project }) => {
+    if (!project.slug) {
+      project.slug = project.project_name.split(" ").map(word => word.toLowerCase()).join("-")
+    }
+  })
   
   return (
     <Root>

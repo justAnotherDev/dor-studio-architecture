@@ -1,6 +1,5 @@
 [
   {
-    "slug": "unaweep-workshop",
     "project_name": "Unaweep Workshop",
     "cover_image": {
       "src": "../../images/about/building.jpeg",
@@ -146,7 +145,6 @@
     ]
   },
   {
-    "slug": "carrollton-river-center",
     "project_name": "Carrollton River Center",
     "cover_image": {
       "src": "../../images/projects/carrollton-river-center/Carrollton-River-Center_Aerial-Views.jpeg",
@@ -203,7 +201,6 @@
     ]
   },
   {
-    "slug": "disaster-relief-shelter",
     "project_name": "Disaster Relief Shelter",
     "cover_image": {
       "src": "../../images/projects/disaster-relief-shelter/Storyboard_CLADDING.jpeg",
@@ -287,7 +284,6 @@
     ]
   },
   {
-    "slug": "new-orleans-dance-academy",
     "project_name": "New Orleans Dance Academy",
     "cover_image": {
       "src": "../../images/projects/new-orleans-dance-academy/Corner-Perspective.jpeg",

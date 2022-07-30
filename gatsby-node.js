@@ -74,9 +74,19 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       }
     }
     `);
+
+    // Create a slug for any portfolio projects not provided one.
+    data.allPortfolioJson.edges.forEach(({ node: project }) => {
+      if (!project.slug) {
+        project.slug = project.project_name.split(" ").map(word => word.toLowerCase()).join("-")
+      }
+    })
+
     data.allPortfolioJson.edges.forEach((edge, index, portfolio) => {
       const { node: prevProject } = index !== 0 ? portfolio[index - 1] : portfolio.slice(-1)[0]
       const { node: nextProject } = index !== portfolio.length - 1 ? portfolio[index + 1] : portfolio[0]
+
+      // Create programmatic navigation
       const navigation = {
         prev: {
           projectName: prevProject.project_name,
@@ -87,7 +97,9 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           link: `${nextProject.slug}/`
         }
       }
+      
       const { slug, ...project } = edge.node;
+      
       createPage({
         path: `/projects/${slug}/`,
         component: require.resolve('./src/components/project/project.js'),

@@ -102,6 +102,11 @@ const IndexPage = ({ route, transitionState }) => {
       }
     }
   `)
+  edges.forEach(({ node: project }) => {
+    if (!project.slug) {
+      project.slug = project.project_name.split(" ").map(word => word.toLowerCase()).join("-")
+    }
+  })
   const prevTransitionState = usePrevious(transitionState)
   // Isotope logic
   const isotope = useRef()
