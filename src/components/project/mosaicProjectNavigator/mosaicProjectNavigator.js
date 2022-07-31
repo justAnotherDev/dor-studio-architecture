@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import "./mosaicProjectNavigator.scss"
 import Slider from "react-slick"
@@ -26,6 +26,12 @@ const Root = styled('div')((
 const MosaicProjectNavigator = ({ project, navigation, modalKey, resetModalKey }) => {
   const [currentSlide, setCurrentSlide] = useState(modalKey + 1)
   const [totalSlides,] = useState(project.mosaic.reduce((s,e) => s + e.images.length, 0))
+
+  // Prevent scrolling while project navigator is open
+  useEffect(() => {
+    document.body.style.overflowY = "hidden"
+    return () => document.body.style.overflowY = null
+  }, [])
   
   const settings = {
     className: "center",

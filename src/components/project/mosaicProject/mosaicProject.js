@@ -6,22 +6,8 @@ import MosaicProjectNavigator from "../mosaicProjectNavigator/mosaicProjectNavig
 
 const MosaicProject = ({ project, navigation }) => {
   const [modalKey, setModalKey] = useState(null)
-  const resetModalKey = () => {
-    document.body.style.overflowY = null
-    setModalKey(null) 
-  }
-  const handleImageClick = (mosaicIndex, i) => {
-    if (typeof window !== `undefined`) {
-      document.body.style.overflowY = 'hidden'
-      setModalKey(
-        (mosaicIndex > 0
-          ? project.mosaic
-              .slice(0, mosaicIndex)
-              .reduce((s, e) => s + e.images.length, 0)
-          : 0) + i
-      )
-    }
-  }
+  const resetModalKey = () => setModalKey(null)
+
   return (
     <div className="project-wrapper">
       <div className="project-container mosaic-project">
@@ -40,7 +26,14 @@ const MosaicProject = ({ project, navigation }) => {
             return (
               <StyledGrid key={mosaicIndex}>
                 {item.images.map((image, i) => (
-                  <div key={i}  onClick={() => handleImageClick(mosaicIndex, i)}
+                  <div key={i}  onClick={() =>
+                    setModalKey(
+                      (mosaicIndex > 0
+                        ? project.mosaic
+                            .slice(0, mosaicIndex)
+                            .reduce((s, e) => s + e.images.length, 0)
+                        : 0) + i
+                    )}
                   >
                     <GatsbyImage 
                       style={{ width: '100%', height: '100%' }} 
