@@ -1,4 +1,8 @@
 module.exports = {
+
+  // Use this param if the site isn't going to be hosted at the root level of the domain
+  // pathPrefix: `/dor-studio-architecture`,
+
   siteMetadata: {
     title: `DOR Studio Architecture`,
     description: `DOR Studio Architecture is a small, woman-owned firm, providing design services in support of your vision.`,
